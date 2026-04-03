@@ -46,15 +46,15 @@
       background: rgba(10,15,30,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 0 1.25rem;
-      height: 72px;
+      padding: 0 1.5rem;
+      height: 110px;
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 1.1rem;
+      font-weight: 800; font-size: 2.2rem; letter-spacing: -0.01em;
     }
-    .nav-logo img { width: 52px; height: 52px; border-radius: 8px; }
+    .nav-logo img { width: 100px; height: 100px; border-radius: 10px; }
     .nav-cta {
       background: var(--cyan); color: #000;
       font-weight: 700; font-size: 0.85rem;
@@ -290,14 +290,9 @@
       font-weight: 700; font-size: 0.9rem;
       transition: all 0.2s;
     }
-    .plan-cta-primary {
-      background: var(--cyan); color: #000;
-    }
+    .plan-cta-primary { background: var(--cyan); color: #000; }
     .plan-cta-primary:hover { background: var(--cyan-dark); color: #fff; }
-    .plan-cta-secondary {
-      background: transparent; color: var(--white);
-      border: 1px solid var(--border);
-    }
+    .plan-cta-secondary { background: transparent; color: var(--white); border: 1px solid var(--border); }
     .plan-cta-secondary:hover { border-color: var(--slate-dim); }
     .pricing-footer { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--slate-dim); }
 
@@ -339,13 +334,11 @@
     /* ── FOOTER ── */
     footer {
       background: var(--bg2); border-top: 1px solid var(--border);
-      padding: 2.5rem 1.25rem;
-      text-align: center;
+      padding: 2.5rem 1.25rem; text-align: center;
     }
     .footer-logo {
       display: flex; align-items: center; gap: 0.5rem;
-      justify-content: center;
-      font-weight: 800; margin-bottom: 1rem;
+      justify-content: center; font-weight: 800; margin-bottom: 1rem;
     }
     .footer-logo img { width: 28px; height: 28px; border-radius: 7px; }
     .footer-links {
@@ -362,6 +355,9 @@
       #hero { padding: 3.5rem 1rem 3rem; }
       .hero-stats { gap: 1.25rem; }
       .stat-num { font-size: 1.4rem; }
+      .nav-logo { font-size: 1.4rem; }
+      .nav-logo img { width: 60px; height: 60px; }
+      nav { height: 80px; }
     }
   </style>
 </head>
@@ -640,13 +636,7 @@
       <div class="waitlist-box">
         <h2>Not ready to sign up?</h2>
         <p>Drop your email and we'll send you the Sunday Prep Method — the exact system used to prep 7 days of keto food in one session.</p>
-        <form
-          name="waitlist"
-          method="POST"
-          data-netlify="true"
-          class="waitlist-form"
-          id="waitlist-form"
-        >
+        <form name="waitlist" method="POST" data-netlify="true" class="waitlist-form" id="waitlist-form">
           <input type="hidden" name="form-name" value="waitlist" />
           <input type="email" name="email" placeholder="your@email.com" required />
           <button type="submit">Send Me the System</button>
@@ -675,7 +665,6 @@
   </footer>
 
   <script>
-    // Netlify form success handling
     const form = document.getElementById('waitlist-form');
     const success = document.getElementById('form-success');
     if (form) {
@@ -696,7 +685,6 @@
       });
     }
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
