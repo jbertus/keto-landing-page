@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keto Contractor — AI Meal Prep for Busy People</title>
-  <meta name="description" content="The AI-powered keto meal prep planner built for contractors, nurses, and anyone with one day off. Generate recipes, plan your week, and batch cook like a machine." />
+  <meta name="description" content="The AI-powered keto meal prep planner built for contractors, nurses, and anyone with one day off. Generate recipes, plan your week, and meal prep like a machine." />
   <meta property="og:title" content="Keto Contractor — AI Meal Prep for Busy People" />
   <meta property="og:description" content="One Sunday. Seven days of food. AI-powered keto meal prep built for people who don't have time to figure it out every day." />
   <meta property="og:url" content="https://ketocontractor.com" />
@@ -121,7 +121,9 @@
     }
     .btn-secondary:hover { border-color: var(--slate-dim); transform: translateY(-1px); }
 
-    .hero-trial-note { font-size: 0.8rem; color: var(--slate-dim); }
+    .hero-trial-note {
+      font-size: 0.8rem; color: var(--slate-dim);
+    }
     .hero-trial-note strong { color: var(--slate); }
 
     .hero-stats {
@@ -275,7 +277,10 @@
       white-space: nowrap;
     }
     .plan-name { font-size: 0.8rem; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
-    .plan-price { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.2rem; }
+    .plan-price {
+      font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em;
+      margin-bottom: 0.2rem;
+    }
     .plan-price span { font-size: 1rem; font-weight: 500; color: var(--slate); }
     .plan-trial { font-size: 0.8rem; color: var(--emerald); font-weight: 600; margin-bottom: 1.25rem; }
     .plan-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
@@ -294,9 +299,14 @@
       font-weight: 700; font-size: 0.9rem;
       transition: all 0.2s;
     }
-    .plan-cta-primary { background: var(--cyan); color: #000; }
+    .plan-cta-primary {
+      background: var(--cyan); color: #000;
+    }
     .plan-cta-primary:hover { background: var(--cyan-dark); color: #fff; }
-    .plan-cta-secondary { background: transparent; color: var(--white); border: 1px solid var(--border); }
+    .plan-cta-secondary {
+      background: transparent; color: var(--white);
+      border: 1px solid var(--border);
+    }
     .plan-cta-secondary:hover { border-color: var(--slate-dim); }
     .pricing-footer { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--slate-dim); }
 
@@ -338,11 +348,13 @@
     /* ── FOOTER ── */
     footer {
       background: var(--bg2); border-top: 1px solid var(--border);
-      padding: 2.5rem 1.25rem; text-align: center;
+      padding: 2.5rem 1.25rem;
+      text-align: center;
     }
     .footer-logo {
       display: flex; align-items: center; gap: 0.5rem;
-      justify-content: center; font-weight: 800; margin-bottom: 1rem;
+      justify-content: center;
+      font-weight: 800; margin-bottom: 1rem;
     }
     .footer-logo img { width: 28px; height: 28px; border-radius: 7px; }
     .footer-links {
@@ -381,6 +393,7 @@
       animation: gradientShift 4s ease infinite;
     }
 
+    /* Hero entrance sequence */
     .hero-badge   { animation: heroEntrance 0.6s ease both; animation-delay: 0.1s; }
     .hero-h1      { animation: heroEntrance 0.6s ease both; animation-delay: 0.25s; }
     .hero-sub     { animation: heroEntrance 0.6s ease both; animation-delay: 0.4s; }
@@ -388,8 +401,10 @@
     .hero-trial-note { animation: heroEntrance 0.6s ease both; animation-delay: 0.65s; }
     .hero-stats   { animation: heroEntrance 0.6s ease both; animation-delay: 0.75s; }
 
+    /* Scroll fade-up */
     .fade-up {
-      opacity: 0; transform: translateY(28px);
+      opacity: 0;
+      transform: translateY(28px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -400,7 +415,10 @@
     .fade-up.delay-5 { transition-delay: 0.5s; }
     .fade-up.delay-6 { transition-delay: 0.6s; }
 
-    .btn-primary, .plan-cta-primary, .nav-cta { position: relative; overflow: hidden; }
+    /* Button shine */
+    .btn-primary, .plan-cta-primary, .nav-cta {
+      position: relative; overflow: hidden;
+    }
     .btn-primary::after, .plan-cta-primary::after, .nav-cta::after {
       content: '';
       position: absolute; top: 0; left: -100%;
@@ -409,16 +427,34 @@
       transition: left 0.55s ease;
       pointer-events: none;
     }
-    .btn-primary:hover::after, .plan-cta-primary:hover::after, .nav-cta:hover::after { left: 160%; }
+    .btn-primary:hover::after, .plan-cta-primary:hover::after, .nav-cta:hover::after {
+      left: 160%;
+    }
 
+    /* Card hover lift + glow */
     .feature, .problem-card, .step {
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
-    .feature:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.35); box-shadow: 0 12px 40px rgba(6,182,212,0.1); }
-    .problem-card:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.35); box-shadow: 0 12px 40px rgba(6,182,212,0.08); }
-    .step:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.35); box-shadow: 0 12px 40px rgba(6,182,212,0.08); }
+    .feature:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6,182,212,0.35);
+      box-shadow: 0 12px 40px rgba(6,182,212,0.1);
+    }
+    .problem-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6,182,212,0.35);
+      box-shadow: 0 12px 40px rgba(6,182,212,0.08);
+    }
+    .step:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6,182,212,0.35);
+      box-shadow: 0 12px 40px rgba(6,182,212,0.08);
+    }
 
-    .feature-icon, .problem-icon, .step-num { transition: background 0.25s, box-shadow 0.25s; }
+    /* Feature icon glow on hover */
+    .feature-icon, .problem-icon, .step-num {
+      transition: background 0.25s, box-shadow 0.25s;
+    }
     .feature:hover .feature-icon,
     .problem-card:hover .problem-icon,
     .step:hover .step-num {
@@ -426,9 +462,11 @@
       box-shadow: 0 0 20px rgba(6,182,212,0.35);
     }
 
+    /* Stat number glow */
     .stat-num { transition: text-shadow 0.3s; }
     .stat:hover .stat-num { text-shadow: 0 0 20px rgba(6,182,212,0.7); }
 
+    /* Canvas hero background */
     #hero { position: relative; overflow: hidden; }
     #hero-canvas {
       position: absolute; top: 0; left: 0;
@@ -437,6 +475,7 @@
     }
     #hero .container { position: relative; z-index: 1; }
 
+    /* Plan card featured pulse border */
     .plan.featured {
       box-shadow: 0 0 0 1px rgba(6,182,212,0.5), 0 20px 60px rgba(6,182,212,0.1);
       animation: featuredPulse 3s ease-in-out infinite;
@@ -446,29 +485,42 @@
       50%      { box-shadow: 0 0 0 2px rgba(6,182,212,0.8), 0 20px 60px rgba(6,182,212,0.2); }
     }
 
+    /* ── IMAGES ── */
     .hero-img-wrap {
-      margin-top: 3.5rem; border-radius: 20px; overflow: hidden;
+      margin-top: 3.5rem;
+      border-radius: 20px;
+      overflow: hidden;
       border: 1px solid var(--border);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.55); position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+      position: relative;
     }
     .hero-img-wrap img { width: 100%; display: block; }
     .hero-img-wrap::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 40%; background: linear-gradient(transparent, var(--bg2)); pointer-events: none;
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(transparent, var(--bg2));
+      pointer-events: none;
     }
 
     .outcomes-img {
-      width: 100%; display: block; border-radius: 18px;
+      width: 100%; display: block;
+      border-radius: 18px;
       border: 1px solid var(--border);
-      box-shadow: 0 16px 60px rgba(0,0,0,0.45); margin-top: 3rem;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.45);
+      margin-top: 3rem;
     }
 
     .features-with-img {
-      display: grid; grid-template-columns: 1fr 1.4fr;
-      gap: 3rem; align-items: start; margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 3rem;
     }
     .features-side-img {
-      border-radius: 16px; overflow: hidden;
+      border-radius: 16px;
+      overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: 0 16px 50px rgba(0,0,0,0.4);
       position: sticky; top: 120px;
@@ -476,11 +528,15 @@
     .features-side-img img { width: 100%; display: block; }
 
     .forwho-layout {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3rem; align-items: center; margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2.5rem;
     }
     .forwho-img {
-      border-radius: 16px; overflow: hidden;
+      border-radius: 16px;
+      overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: 0 16px 50px rgba(0,0,0,0.4);
     }
@@ -493,14 +549,12 @@
       .forwho-img { order: -1; }
     }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       section { padding: 3.5rem 1rem; }
       #hero { padding: 3.5rem 1rem 3rem; }
       .hero-stats { gap: 1.25rem; }
       .stat-num { font-size: 1.4rem; }
-      nav { height: 80px; }
-      .nav-logo { font-size: 1.4rem; }
-      .nav-logo img { width: 60px; height: 60px; }
     }
   </style>
 </head>
@@ -600,7 +654,7 @@
     <div class="container">
       <div class="section-label">The Solution</div>
       <h2>Prep once. Eat right all week.</h2>
-      <p class="section-sub">One session on your day off. Everything handled. No thinking required Monday through Friday.</p>
+      <p class="section-sub">One session on your day off. Everything handled. No thinking required Monday through Saturday.</p>
       <div class="steps">
         <div class="step fade-up delay-1">
           <div class="step-num">1</div>
@@ -638,105 +692,105 @@
           <img src="SLP%20%26%20AI%20Generated%20Recipes.png" alt="AI-generated meal plans and recipes" />
         </div>
         <div class="features-grid" style="margin-top:0">
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><path d="M4 14h6v6H4z"/><path d="M9 7h6M7 9v6M17 9v2M12 17h5"/>
-              </svg>
-            </div>
-            <div>
-              <h4>AI Recipe Generator</h4>
-              <p>Custom keto recipes based on your diet, macros, and ingredients on hand. Generates images too.</p>
-            </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><path d="M4 14h6v6H4z"/><path d="M9 7h6M7 9v6M17 9v2M12 17h5"/>
+            </svg>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Weekly Meal Planner</h4>
-              <p>Drag-and-drop planner with full macro tracking per day. Plan the whole week in minutes.</p>
-            </div>
+          <div>
+            <h4>AI Recipe Generator</h4>
+            <p>Custom keto recipes based on your diet, macros, and ingredients on hand. Generates images too.</p>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Auto Shopping List</h4>
-              <p>Your planner auto-builds a shopping list. Check off items as you shop, reset when you're done.</p>
-            </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </div>
-            <div>
-              <h4>BuildMyWeek AI</h4>
-              <p>Answer a few questions and the AI builds your entire week — recipes, plan, and shopping list.</p>
-            </div>
+          <div>
+            <h4>Weekly Meal Planner</h4>
+            <p>Drag-and-drop planner with full macro tracking per day. Plan the whole week in minutes.</p>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Plate Analyzer</h4>
-              <p>Snap a photo of any meal. Get an instant keto score, macro estimates, and eating-out tips.</p>
-            </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Cook Mode</h4>
-              <p>Step-by-step cooking mode with built-in timers. Keeps your screen on and hands-free.</p>
-            </div>
+          <div>
+            <h4>Auto Shopping List</h4>
+            <p>Your planner auto-builds a shopping list. Check off items as you shop, reset when you're done.</p>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Pantry Tracker</h4>
-              <p>Know what you have. Scan barcodes, track items, and get recipe ideas from what's in your fridge.</p>
-            </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Ask the Coach</h4>
-              <p>AI cooking assistant built into every recipe. Ask anything — substitutions, techniques, macros.</p>
-            </div>
+          <div>
+            <h4>BuildMyWeek AI</h4>
+            <p>Answer a few questions and the AI builds your entire week — recipes, plan, and shopping list.</p>
           </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Progress Tracker</h4>
-              <p>Log weight, macros, and ketones. AI-powered weekly check-in reviews your progress automatically.</p>
-            </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+            </svg>
           </div>
+          <div>
+            <h4>Plate Analyzer</h4>
+            <p>Snap a photo of any meal. Get an instant keto score, macro estimates, and eating-out tips.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Cook Mode</h4>
+            <p>Step-by-step cooking mode with built-in timers. Keeps your screen on and hands-free.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Pantry Tracker</h4>
+            <p>Know what you have. Scan barcodes, track items, and get recipe ideas from what's in your fridge.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Ask the Coach</h4>
+            <p>AI cooking assistant built into every recipe. Ask anything — substitutions, techniques, macros.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Progress Tracker</h4>
+            <p>Log weight, macros, and ketones. AI-powered weekly check-in reviews your progress automatically.</p>
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -753,7 +807,7 @@
         </div>
         <div class="story-box fade-up delay-2" style="margin:0">
           <p>Keto Contractor started as a personal problem. Six days a week on job sites. One day off — Sunday. No time to cook after 10-hour days. Eating whatever was fast meant eating garbage.</p>
-          <p>The solution wasn't a diet app. It was a system. Use Sunday to prep everything — breakfast and lunch for the whole week. Protein, fat, done. No thinking Monday through Friday.</p>
+          <p>The solution wasn't a diet app. It was a system. Use Sunday to prep everything — breakfast and lunch for the whole week. Protein, fat, done. No thinking Monday through Saturday.</p>
           <p>That's what Keto Contractor does. It's the system, automated by AI.</p>
         </div>
       </div>
@@ -869,9 +923,9 @@
     <div class="container">
       <div class="waitlist-box">
         <h2>Not ready to sign up?</h2>
-        <p>Drop your email and we'll send you the Sunday Prep Method — the exact system used to prep 7 days of keto food in one session.</p>
+        <p>Drop your email and we'll send you the Sunday Prep Method — the exact system used to prep 6 days of keto food in one session.</p>
         <form class="waitlist-form" id="waitlist-form">
-          <input type="email" name="email" placeholder="your@email.com" required />
+          <input type="email" placeholder="your@email.com" required />
           <button type="submit">Send Me the System</button>
         </form>
         <div class="form-success" id="form-success">
@@ -893,6 +947,8 @@
       <a href="#pricing">Pricing</a>
       <a href="#how">How It Works</a>
       <a href="mailto:support@ketocontractor.com">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
     </div>
     <p class="footer-copy">© 2026 Keto Contractor. All rights reserved.</p>
   </footer>
