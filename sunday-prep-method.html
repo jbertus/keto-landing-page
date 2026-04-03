@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sunday Prep Method — Free Guide | Keto Contractor</title>
+  <meta name="description" content="The 5-step system to prep 6 days of keto food in one Sunday session. No daily decisions. No stress. Just grab and go." />
+  <link rel="icon" href="https://app.ketocontractor.com/kc-logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0f1e;
+      --bg2:       #0f172a;
+      --bg3:       #131b2d;
+      --border:    #1e293b;
+      --cyan:      #06b6d4;
+      --cyan-dark: #0891b2;
+      --cyan-glow: rgba(6,182,212,0.15);
+      --white:     #f8fafc;
+      --slate:     #94a3b8;
+      --slate-dim: #475569;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── LOGO ── */
+    .logo-wrap {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+    .logo-wrap img { width: 56px; height: 56px; border-radius: 10px; }
+    .logo-wrap span { font-size: 1.1rem; font-weight: 800; color: var(--white); }
+
+    /* ── CARD ── */
+    .card {
+      width: 100%;
+      max-width: 600px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.3);
+      color: var(--cyan); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 1.5rem;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; background: var(--cyan);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* ── HEADLINE ── */
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    h1 .accent { color: var(--cyan); }
+
+    /* ── BODY COPY ── */
+    .lead {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── PROOF POINTS ── */
+    .proof-list {
+      list-style: none;
+      margin: 1.5rem auto 2rem;
+      max-width: 420px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .proof-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.95rem; color: var(--slate); line-height: 1.5;
+    }
+    .proof-list li::before {
+      content: '';
+      display: block;
+      width: 18px; height: 18px; flex-shrink: 0;
+      margin-top: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2306b6d4'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-size: contain; background-repeat: no-repeat;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.75rem 0;
+    }
+
+    /* ── FORM ── */
+    .form-label {
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 0.75rem;
+      display: block;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--white); font-size: 1rem;
+      padding: 0.85rem 1.1rem; border-radius: 10px;
+      margin-bottom: 0.75rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--cyan); }
+    .form-input::placeholder { color: var(--slate-dim); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--cyan); color: #000;
+      font-weight: 800; font-size: 1.05rem;
+      padding: 0.9rem 2rem; border-radius: 10px;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { background: var(--cyan-dark); color: #fff; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-note {
+      font-size: 0.78rem; color: var(--slate-dim);
+      margin-top: 0.75rem;
+    }
+
+    /* ── SUCCESS ── */
+    #form-success {
+      display: none;
+      background: rgba(6,182,212,0.08);
+      border: 1px solid rgba(6,182,212,0.3);
+      border-radius: 12px;
+      padding: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--cyan);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.78rem;
+      color: var(--slate-dim);
+      text-align: center;
+    }
+    .footer a { color: var(--slate-dim); text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <img src="https://app.ketocontractor.com/kc-logo.png" alt="Keto Contractor" />
+    <span>Keto Contractor</span>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <div class="badge"><span class="badge-dot"></span> Free Guide</div>
+
+    <h1>Stop Thinking About<br><span class="accent">Food Every Day.</span></h1>
+
+    <p class="lead">
+      One Sunday session. Six days of food ready to grab. No meal planning during the week. No last-minute decisions. No falling off track because you didn't have time to figure it out.
+    </p>
+
+    <ul class="proof-list">
+      <li>Works whether you're trying to lose weight, manage blood sugar, or just eat cleaner without the daily stress</li>
+      <li>Prep takes 2–3 hours on Sunday — the rest of the week runs on autopilot</li>
+      <li>Built for people with real jobs and zero extra time</li>
+    </ul>
+
+    <hr class="divider" />
+
+    <label class="form-label" for="email-input">Send me the free system →</label>
+
+    <form id="waitlist-form">
+      <input
+        id="email-input"
+        class="form-input"
+        type="email"
+        placeholder="your@email.com"
+        required
+        autocomplete="email"
+      />
+      <button class="btn-submit" type="submit">Send Me the Sunday Prep Method</button>
+      <p class="form-note">No spam. Unsubscribe anytime.</p>
+    </form>
+
+    <div id="form-success">
+      ✓ Check your inbox — the Sunday Prep Method is on its way.
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>© 2026 Keto Contractor &nbsp;·&nbsp; <a href="https://ketocontractor.com">ketocontractor.com</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const success = document.getElementById('form-success');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        const email = form.querySelector('input[type="email"]').value;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          const res = await fetch('/.netlify/functions/send-prep-method', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+          } else {
+            btn.textContent = 'Something went wrong — try again';
+            btn.disabled = false;
+          }
+        } catch (err) {
+          btn.textContent = 'Something went wrong — try again';
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

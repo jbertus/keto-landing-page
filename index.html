@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Sunday Prep Method — Free Guide | Keto Contractor</title>
-  <meta name="description" content="The 5-step system to prep 6 days of keto food in one Sunday session. No daily decisions. No stress. Just grab and go." />
+  <title>Keto Contractor — AI Meal Prep for Busy People</title>
+  <meta name="description" content="The AI-powered keto meal prep planner built for contractors, nurses, and anyone with one day off. Generate recipes, plan your week, and batch cook like a machine." />
+  <meta property="og:title" content="Keto Contractor — AI Meal Prep for Busy People" />
+  <meta property="og:description" content="One Sunday. Seven days of food. AI-powered keto meal prep built for people who don't have time to figure it out every day." />
+  <meta property="og:url" content="https://ketocontractor.com" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="https://app.ketocontractor.com/kc-logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +24,8 @@
       --white:     #f8fafc;
       --slate:     #94a3b8;
       --slate-dim: #475569;
+      --yellow:    #fbbf24;
+      --emerald:   #10b981;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,219 +35,976 @@
       background: var(--bg);
       color: var(--white);
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.25rem;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    /* ── LOGO ── */
-    .logo-wrap {
-      display: flex; align-items: center; gap: 0.75rem;
-      margin-bottom: 3rem;
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,15,30,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 110px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .logo-wrap img { width: 56px; height: 56px; border-radius: 10px; }
-    .logo-wrap span { font-size: 1.1rem; font-weight: 800; color: var(--white); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 1.1rem;
+      font-weight: 800; font-size: 2.2rem; letter-spacing: -0.01em;
+    }
+    .nav-logo img { width: 100px; height: 100px; border-radius: 10px; }
+    .nav-cta {
+      background: var(--cyan); color: #000;
+      font-weight: 700; font-size: 0.85rem;
+      padding: 0.45rem 1.1rem; border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--cyan-dark); color: #fff; }
 
-    /* ── CARD ── */
-    .card {
-      width: 100%;
-      max-width: 600px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.25rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container-sm { max-width: 720px; margin: 0 auto; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 5rem 1.25rem 4rem;
       text-align: center;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,182,212,0.1) 0%, transparent 70%);
     }
-
-    /* ── BADGE ── */
-    .badge {
+    .hero-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.3);
-      color: var(--cyan); font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--cyan); font-size: 0.78rem; font-weight: 600;
       padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 1.5rem;
     }
-    .badge-dot {
-      width: 6px; height: 6px; background: var(--cyan);
-      border-radius: 50%; animation: pulse 2s infinite;
-    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-    /* ── HEADLINE ── */
     h1 {
-      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
       font-weight: 900;
-      line-height: 1.15;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 1.25rem;
     }
     h1 .accent { color: var(--cyan); }
 
-    /* ── BODY COPY ── */
-    .lead {
-      font-size: 1.05rem;
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
       color: var(--slate);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 600px; margin: 0 auto 2.5rem;
+      line-height: 1.65;
     }
 
-    /* ── PROOF POINTS ── */
-    .proof-list {
-      list-style: none;
-      margin: 1.5rem auto 2rem;
-      max-width: 420px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+    .hero-ctas {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      justify-content: center; margin-bottom: 3rem;
     }
-    .proof-list li {
-      display: flex; align-items: flex-start; gap: 0.6rem;
-      font-size: 0.95rem; color: var(--slate); line-height: 1.5;
+    .btn-primary {
+      background: var(--cyan); color: #000;
+      font-weight: 800; font-size: 1rem;
+      padding: 0.85rem 2rem; border-radius: 10px;
+      transition: background 0.2s, transform 0.15s;
+      border: none; cursor: pointer;
     }
-    .proof-list li::before {
-      content: '';
-      display: block;
-      width: 18px; height: 18px; flex-shrink: 0;
-      margin-top: 1px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2306b6d4'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z' clip-rule='evenodd'/%3E%3C/svg%3E");
-      background-size: contain; background-repeat: no-repeat;
+    .btn-primary:hover { background: var(--cyan-dark); color: #fff; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      font-weight: 600; font-size: 1rem;
+      padding: 0.85rem 2rem; border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
+      cursor: pointer;
     }
+    .btn-secondary:hover { border-color: var(--slate-dim); transform: translateY(-1px); }
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
+    .hero-trial-note { font-size: 0.8rem; color: var(--slate-dim); }
+    .hero-trial-note strong { color: var(--slate); }
+
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      justify-content: center; margin-top: 3.5rem;
+      padding-top: 2.5rem;
       border-top: 1px solid var(--border);
-      margin: 1.75rem 0;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.75rem; font-weight: 900; color: var(--cyan); }
+    .stat-label { font-size: 0.78rem; color: var(--slate); margin-top: 0.15rem; }
+
+    /* ── PROBLEM ── */
+    #problem { background: var(--bg2); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .problem-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+    }
+    .problem-icon {
+      width: 52px; height: 52px;
+      background: var(--cyan-glow); border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cyan); margin-bottom: 1.1rem;
+    }
+    .problem-icon svg { width: 26px; height: 26px; }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .problem-card p { font-size: 0.875rem; color: var(--slate); line-height: 1.6; }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 900; letter-spacing: -0.02em;
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--slate); font-size: 1.05rem;
+      max-width: 560px; line-height: 1.65;
     }
 
-    /* ── FORM ── */
-    .form-label {
-      font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 0.75rem;
-      display: block;
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--bg); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
     }
-    .form-input {
-      width: 100%;
+    .step {
       background: var(--bg3); border: 1px solid var(--border);
-      color: var(--white); font-size: 1rem;
-      padding: 0.85rem 1.1rem; border-radius: 10px;
-      margin-bottom: 0.75rem;
-      outline: none;
+      border-radius: 16px; padding: 1.75rem;
+      position: relative;
+    }
+    .step-num {
+      width: 36px; height: 36px;
+      background: var(--cyan-glow); border: 1px solid rgba(6,182,212,0.3);
+      color: var(--cyan); font-weight: 900; font-size: 0.9rem;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step p { font-size: 0.875rem; color: var(--slate); line-height: 1.6; }
+
+    /* ── FEATURES ── */
+    #features { background: var(--bg2); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .feature {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem;
+      display: flex; gap: 0.875rem; align-items: flex-start;
+    }
+    .feature-icon {
+      width: 36px; height: 36px; shrink: 0;
+      background: var(--cyan-glow); border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .feature h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .feature p { font-size: 0.8rem; color: var(--slate); line-height: 1.5; }
+
+    /* ── FOR WHO ── */
+    #forwho { background: var(--bg); }
+    .story-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--cyan);
+      border-radius: 14px; padding: 2rem;
+      max-width: 680px;
+      margin: 2rem auto 0;
+    }
+    .story-box p { color: var(--slate); line-height: 1.8; margin-bottom: 1rem; font-size: 0.975rem; }
+    .story-box p:last-child { margin-bottom: 0; color: var(--white); font-weight: 600; }
+    .who-list {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.5rem;
+      justify-content: center;
+    }
+    .who-tag {
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 0.4rem 1rem; border-radius: 999px;
+      font-size: 0.82rem; color: var(--slate);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .who-tag svg { color: var(--cyan); flex-shrink: 0; }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--bg2); }
+    .pricing-note {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3);
+      color: var(--yellow); font-size: 0.82rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2.5rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem; margin-top: 1rem;
+    }
+    .plan {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 18px; padding: 1.75rem;
+      display: flex; flex-direction: column;
       transition: border-color 0.2s;
     }
-    .form-input:focus { border-color: var(--cyan); }
-    .form-input::placeholder { color: var(--slate-dim); }
+    .plan:hover { border-color: var(--slate-dim); }
+    .plan.featured {
+      border-color: var(--cyan);
+      background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, var(--bg3) 60%);
+      position: relative;
+    }
+    .plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--cyan); color: #000;
+      font-size: 0.72rem; font-weight: 800;
+      padding: 0.25rem 0.85rem; border-radius: 999px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .plan-name { font-size: 0.8rem; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .plan-price { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.2rem; }
+    .plan-price span { font-size: 1rem; font-weight: 500; color: var(--slate); }
+    .plan-trial { font-size: 0.8rem; color: var(--emerald); font-weight: 600; margin-bottom: 1.25rem; }
+    .plan-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+    .plan-features { list-style: none; flex: 1; margin-bottom: 1.5rem; }
+    .plan-features li {
+      font-size: 0.85rem; color: var(--slate);
+      padding: 0.3rem 0;
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .plan-features li::before { content: "✓"; color: var(--emerald); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+    .plan-features li.dim::before { content: "—"; color: var(--slate-dim); }
+    .plan-features li.dim { color: var(--slate-dim); }
+    .plan-cta {
+      display: block; text-align: center;
+      padding: 0.8rem; border-radius: 10px;
+      font-weight: 700; font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .plan-cta-primary { background: var(--cyan); color: #000; }
+    .plan-cta-primary:hover { background: var(--cyan-dark); color: #fff; }
+    .plan-cta-secondary { background: transparent; color: var(--white); border: 1px solid var(--border); }
+    .plan-cta-secondary:hover { border-color: var(--slate-dim); }
+    .pricing-footer { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--slate-dim); }
 
-    .btn-submit {
+    /* ── EMAIL CAPTURE ── */
+    #waitlist {
+      background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, var(--bg) 60%);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .waitlist-box { max-width: 480px; margin: 0 auto; }
+    .waitlist-box h2 { margin-bottom: 0.75rem; }
+    .waitlist-box p { color: var(--slate); margin-bottom: 2rem; }
+    .waitlist-form { display: flex; flex-direction: column; gap: 0.75rem; }
+    .waitlist-form input[type="email"] {
+      width: 100%;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--white); font-size: 0.95rem;
+      padding: 0.85rem 1rem; border-radius: 10px;
+      outline: none; transition: border-color 0.2s;
+    }
+    .waitlist-form input[type="email"]:focus { border-color: var(--cyan); }
+    .waitlist-form input[type="email"]::placeholder { color: var(--slate-dim); }
+    .waitlist-form button {
       width: 100%;
       background: var(--cyan); color: #000;
-      font-weight: 800; font-size: 1.05rem;
-      padding: 0.9rem 2rem; border-radius: 10px;
+      font-weight: 800; font-size: 0.95rem;
+      padding: 0.85rem; border-radius: 10px;
       border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.2s;
     }
-    .btn-submit:hover { background: var(--cyan-dark); color: #fff; transform: translateY(-1px); }
-    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    .form-note {
-      font-size: 0.78rem; color: var(--slate-dim);
-      margin-top: 0.75rem;
-    }
-
-    /* ── SUCCESS ── */
-    #form-success {
+    .waitlist-form button:hover { background: var(--cyan-dark); color: #fff; }
+    .form-success {
       display: none;
-      background: rgba(6,182,212,0.08);
-      border: 1px solid rgba(6,182,212,0.3);
-      border-radius: 12px;
-      padding: 1.25rem;
-      font-size: 0.95rem;
-      color: var(--cyan);
-      font-weight: 600;
-      line-height: 1.5;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+      color: var(--emerald); padding: 1rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem;
     }
 
     /* ── FOOTER ── */
-    .footer {
-      margin-top: 2.5rem;
-      font-size: 0.78rem;
-      color: var(--slate-dim);
-      text-align: center;
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 2.5rem 1.25rem; text-align: center;
     }
-    .footer a { color: var(--slate-dim); text-decoration: underline; }
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.5rem;
+      justify-content: center; font-weight: 800; margin-bottom: 1rem;
+    }
+    .footer-logo img { width: 28px; height: 28px; border-radius: 7px; }
+    .footer-links {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      justify-content: center; margin-bottom: 1.25rem;
+    }
+    .footer-links a { font-size: 0.85rem; color: var(--slate); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.78rem; color: var(--slate-dim); }
 
-    @media (max-width: 480px) {
-      .card { padding: 2rem 1.5rem; }
+    /* ── ANIMATIONS ── */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroEntrance {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    h1 .accent {
+      background: linear-gradient(90deg, #06b6d4, #a78bfa, #22d3ee, #06b6d4);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease infinite;
+    }
+
+    .hero-badge   { animation: heroEntrance 0.6s ease both; animation-delay: 0.1s; }
+    .hero-h1      { animation: heroEntrance 0.6s ease both; animation-delay: 0.25s; }
+    .hero-sub     { animation: heroEntrance 0.6s ease both; animation-delay: 0.4s; }
+    .hero-ctas    { animation: heroEntrance 0.6s ease both; animation-delay: 0.55s; }
+    .hero-trial-note { animation: heroEntrance 0.6s ease both; animation-delay: 0.65s; }
+    .hero-stats   { animation: heroEntrance 0.6s ease both; animation-delay: 0.75s; }
+
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+    .fade-up.delay-5 { transition-delay: 0.5s; }
+    .fade-up.delay-6 { transition-delay: 0.6s; }
+
+    .btn-primary, .plan-cta-primary, .nav-cta { position: relative; overflow: hidden; }
+    .btn-primary::after, .plan-cta-primary::after, .nav-cta::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.55s ease;
+      pointer-events: none;
+    }
+    .btn-primary:hover::after, .plan-cta-primary:hover::after, .nav-cta:hover::after { left: 160%; }
+
+    .feature, .problem-card, .step {
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .feature:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.35); box-shadow: 0 12px 40px rgba(6,182,212,0.1); }
+    .problem-card:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.35); box-shadow: 0 12px 40px rgba(6,182,212,0.08); }
+    .step:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.35); box-shadow: 0 12px 40px rgba(6,182,212,0.08); }
+
+    .feature-icon, .problem-icon, .step-num { transition: background 0.25s, box-shadow 0.25s; }
+    .feature:hover .feature-icon,
+    .problem-card:hover .problem-icon,
+    .step:hover .step-num {
+      background: rgba(6,182,212,0.25);
+      box-shadow: 0 0 20px rgba(6,182,212,0.35);
+    }
+
+    .stat-num { transition: text-shadow 0.3s; }
+    .stat:hover .stat-num { text-shadow: 0 0 20px rgba(6,182,212,0.7); }
+
+    #hero { position: relative; overflow: hidden; }
+    #hero-canvas {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+    #hero .container { position: relative; z-index: 1; }
+
+    .plan.featured {
+      box-shadow: 0 0 0 1px rgba(6,182,212,0.5), 0 20px 60px rgba(6,182,212,0.1);
+      animation: featuredPulse 3s ease-in-out infinite;
+    }
+    @keyframes featuredPulse {
+      0%,100% { box-shadow: 0 0 0 1px rgba(6,182,212,0.5), 0 20px 60px rgba(6,182,212,0.1); }
+      50%      { box-shadow: 0 0 0 2px rgba(6,182,212,0.8), 0 20px 60px rgba(6,182,212,0.2); }
+    }
+
+    .hero-img-wrap {
+      margin-top: 3.5rem; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.55); position: relative;
+    }
+    .hero-img-wrap img { width: 100%; display: block; }
+    .hero-img-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 40%; background: linear-gradient(transparent, var(--bg2)); pointer-events: none;
+    }
+
+    .outcomes-img {
+      width: 100%; display: block; border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 60px rgba(0,0,0,0.45); margin-top: 3rem;
+    }
+
+    .features-with-img {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 3rem; align-items: start; margin-top: 3rem;
+    }
+    .features-side-img {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+      position: sticky; top: 120px;
+    }
+    .features-side-img img { width: 100%; display: block; }
+
+    .forwho-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center; margin-top: 2.5rem;
+    }
+    .forwho-img {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+    }
+    .forwho-img img { width: 100%; display: block; }
+
+    @media (max-width: 860px) {
+      .features-with-img { grid-template-columns: 1fr; }
+      .features-side-img { display: none; }
+      .forwho-layout { grid-template-columns: 1fr; }
+      .forwho-img { order: -1; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 3.5rem 1rem; }
+      #hero { padding: 3.5rem 1rem 3rem; }
+      .hero-stats { gap: 1.25rem; }
+      .stat-num { font-size: 1.4rem; }
+      nav { height: 80px; }
+      .nav-logo { font-size: 1.4rem; }
+      .nav-logo img { width: 60px; height: 60px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- LOGO -->
-  <div class="logo-wrap">
-    <img src="https://app.ketocontractor.com/kc-logo.png" alt="Keto Contractor" />
-    <span>Keto Contractor</span>
-  </div>
-
-  <!-- CARD -->
-  <div class="card">
-
-    <div class="badge"><span class="badge-dot"></span> Free Guide</div>
-
-    <h1>Stop Thinking About<br><span class="accent">Food Every Day.</span></h1>
-
-    <p class="lead">
-      One Sunday session. Six days of food ready to grab. No meal planning during the week. No last-minute decisions. No falling off track because you didn't have time to figure it out.
-    </p>
-
-    <ul class="proof-list">
-      <li>Works whether you're trying to lose weight, manage blood sugar, or just eat cleaner without the daily stress</li>
-      <li>Prep takes 2–3 hours on Sunday — the rest of the week runs on autopilot</li>
-      <li>Built for people with real jobs and zero extra time</li>
-    </ul>
-
-    <hr class="divider" />
-
-    <label class="form-label" for="email-input">Send me the free system →</label>
-
-    <form id="waitlist-form">
-      <input
-        id="email-input"
-        class="form-input"
-        type="email"
-        placeholder="your@email.com"
-        required
-        autocomplete="email"
-      />
-      <button class="btn-submit" type="submit">Send Me the Sunday Prep Method</button>
-      <p class="form-note">No spam. Unsubscribe anytime.</p>
-    </form>
-
-    <div id="form-success">
-      ✓ Check your inbox — the Sunday Prep Method is on its way.
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="https://app.ketocontractor.com/kc-logo.png" alt="Keto Contractor" onerror="this.style.display='none'" />
+      Keto Contractor
     </div>
+    <a href="https://app.ketocontractor.com/login" class="nav-cta">Start Free Trial</a>
+  </nav>
 
-  </div>
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="container">
+      <div class="hero-badge">
+        <span></span> AI-Powered Keto Meal Prep
+      </div>
+      <h1 class="hero-h1">One Sunday.<br /><span class="accent">Seven days of food.</span></h1>
+      <p class="hero-sub">
+        The AI meal prep planner built for people who work hard and don't have time to figure out keto every single day. Generate recipes, plan your week, and meal prep like a machine.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://app.ketocontractor.com/login" class="btn-primary">Start Free — 7 Days on Us</a>
+        <a href="#how" class="btn-secondary">See How It Works</a>
+      </div>
+      <p class="hero-trial-note">7-day free trial. Cancel anytime.</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" data-count="2200" data-suffix="+">2,200+</div>
+          <div class="stat-label">Keto Recipes Generated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="7" data-suffix=" days">7 days</div>
+          <div class="stat-label">7-Day Free Trial</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="1" data-suffix=" day">1 day</div>
+          <div class="stat-label">To Prep the Whole Week</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">AI</div>
+          <div class="stat-label">That Learns Your Taste</div>
+        </div>
+      </div>
+
+      <div class="hero-img-wrap fade-up">
+        <img src="Workers%20with%20Keto%20meals.png" alt="Keto Contractor — real food, real results" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="section-label">The Problem</div>
+      <h2>Keto fails when life gets busy.</h2>
+      <p class="section-sub">You know keto works. The problem isn't willpower — it's logistics.</p>
+      <div class="problem-grid">
+        <div class="problem-card fade-up delay-1">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Long days, zero energy to cook</h3>
+          <p>You get home after 10 hours on a job site. The last thing you want to do is figure out what to eat. So you grab whatever's there — and keto goes out the window.</p>
+        </div>
+        <div class="problem-card fade-up delay-2">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Decision fatigue every single day</h3>
+          <p>What do I eat for breakfast? Lunch? Do I have the ingredients? Is this keto? By day three you stop asking and just eat whatever's fast.</p>
+        </div>
+        <div class="problem-card fade-up delay-3">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/>
+            </svg>
+          </div>
+          <h3>No system, no consistency</h3>
+          <p>Without a weekly plan you're improvising every day. Improvising leads to bad choices. Bad choices break the streak. Broken streaks kill results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-label">The Solution</div>
+      <h2>Prep once. Eat right all week.</h2>
+      <p class="section-sub">One session on your day off. Everything handled. No thinking required Monday through Friday.</p>
+      <div class="steps">
+        <div class="step fade-up delay-1">
+          <div class="step-num">1</div>
+          <h3>Generate your recipes</h3>
+          <p>Tell the AI your diet, meal type, and ingredients. It generates custom keto recipes tuned to your macros and taste — in seconds. The more you use it, the better it gets.</p>
+        </div>
+        <div class="step fade-up delay-2">
+          <div class="step-num">2</div>
+          <h3>Plan your full week</h3>
+          <p>Drag recipes into your weekly planner — breakfast, lunch, dinner, snacks. Or let BuildMyWeek do it automatically based on your preferences. Shopping list auto-builds.</p>
+        </div>
+        <div class="step fade-up delay-3">
+          <div class="step-num">3</div>
+          <h3>Meal prep &amp; go</h3>
+          <p>Scale recipes to 5, 7, or 10 servings. Follow the step-by-step Cook Mode. Containers stacked, fridge loaded, week handled. No more daily decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES IMAGE -->
+  <section style="padding: 0 1.25rem 5rem; background: var(--bg);">
+    <div class="container">
+      <img src="Easy%20Meal%20Prep.png" alt="Organized meals, save money, more energy" class="outcomes-img fade-up" />
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="section-label">Features</div>
+      <h2>Everything you need.<br />Nothing you don't.</h2>
+      <div class="features-with-img">
+        <div class="features-side-img fade-up">
+          <img src="SLP%20%26%20AI%20Generated%20Recipes.png" alt="AI-generated meal plans and recipes" />
+        </div>
+        <div class="features-grid" style="margin-top:0">
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><path d="M4 14h6v6H4z"/><path d="M9 7h6M7 9v6M17 9v2M12 17h5"/>
+              </svg>
+            </div>
+            <div>
+              <h4>AI Recipe Generator</h4>
+              <p>Custom keto recipes based on your diet, macros, and ingredients on hand. Generates images too.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Weekly Meal Planner</h4>
+              <p>Drag-and-drop planner with full macro tracking per day. Plan the whole week in minutes.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Auto Shopping List</h4>
+              <p>Your planner auto-builds a shopping list. Check off items as you shop, reset when you're done.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div>
+              <h4>BuildMyWeek AI</h4>
+              <p>Answer a few questions and the AI builds your entire week — recipes, plan, and shopping list.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Plate Analyzer</h4>
+              <p>Snap a photo of any meal. Get an instant keto score, macro estimates, and eating-out tips.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Cook Mode</h4>
+              <p>Step-by-step cooking mode with built-in timers. Keeps your screen on and hands-free.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Pantry Tracker</h4>
+              <p>Know what you have. Scan barcodes, track items, and get recipe ideas from what's in your fridge.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Ask the Coach</h4>
+              <p>AI cooking assistant built into every recipe. Ask anything — substitutions, techniques, macros.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Progress Tracker</h4>
+              <p>Log weight, macros, and ketones. AI-powered weekly check-in reviews your progress automatically.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHO -->
+  <section id="forwho">
+    <div class="container container-sm">
+      <div class="section-label">Who It's For</div>
+      <h2>Built by someone who lived it.</h2>
+      <div class="forwho-layout">
+        <div class="forwho-img fade-up">
+          <img src="Keto%20contractor%20fuel%20and%20strength%202.png" alt="Keto Contractor — built for workers" />
+        </div>
+        <div class="story-box fade-up delay-2" style="margin:0">
+          <p>Keto Contractor started as a personal problem. Six days a week on job sites. One day off — Sunday. No time to cook after 10-hour days. Eating whatever was fast meant eating garbage.</p>
+          <p>The solution wasn't a diet app. It was a system. Use Sunday to prep everything — breakfast and lunch for the whole week. Protein, fat, done. No thinking Monday through Friday.</p>
+          <p>That's what Keto Contractor does. It's the system, automated by AI.</p>
+        </div>
+      </div>
+      <div class="who-list">
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Contractors &amp; Tradespeople
+        </span>
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Nurses &amp; Healthcare Workers
+        </span>
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Truck Drivers
+        </span>
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M2 20h20"/><path d="M6 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg>
+          Construction Workers
+        </span>
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          Busy Professionals
+        </span>
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Parents with No Time
+        </span>
+        <span class="who-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Anyone Serious About Keto
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <h2>Start free. Stay as long as it works.</h2>
+      <p class="section-sub" style="margin-bottom:1.5rem">Every plan starts with a 7-day free trial. Cancel anytime before day 8.</p>
+      <div style="text-align:center">
+        <div class="pricing-note">✦ 7-day free trial on every plan — cancel anytime</div>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- Hustle -->
+        <div class="plan">
+          <div class="plan-name">Hustle</div>
+          <div class="plan-price">$29<span>/mo</span></div>
+          <div class="plan-trial">✓ 7-day free trial</div>
+          <hr class="plan-divider" />
+          <ul class="plan-features">
+            <li>AI Recipe Generator</li>
+            <li>10 AI credits / month</li>
+            <li>Recipe Library</li>
+            <li>Meal Planner</li>
+            <li>Shopping List</li>
+            <li class="dim">BuildMyWeek AI</li>
+            <li class="dim">Plate Analyzer</li>
+            <li class="dim">Voice Input</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_CeEGYwSLSq3xe" class="plan-cta plan-cta-secondary">Start Free Trial</a>
+        </div>
+
+        <!-- Grind (featured) -->
+        <div class="plan featured">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-name">Grind</div>
+          <div class="plan-price">$49<span>/mo</span></div>
+          <div class="plan-trial">✓ 7-day free trial</div>
+          <hr class="plan-divider" />
+          <ul class="plan-features">
+            <li>Everything in Hustle</li>
+            <li>50 AI credits / month</li>
+            <li>BuildMyWeek AI</li>
+            <li>Plate Analyzer</li>
+            <li>Barcode Scanner</li>
+            <li>Recipe Scaler &amp; Substitutions</li>
+            <li>Smart Weekly Planner</li>
+            <li class="dim">Voice Input</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_ampXYPQ6OOjHY" class="plan-cta plan-cta-primary">Start Free Trial</a>
+        </div>
+
+        <!-- Elevate -->
+        <div class="plan">
+          <div class="plan-name">Elevate</div>
+          <div class="plan-price">$89<span>/mo</span></div>
+          <div class="plan-trial">✓ 7-day free trial</div>
+          <hr class="plan-divider" />
+          <ul class="plan-features">
+            <li>Everything in Grind</li>
+            <li>100 AI credits / month</li>
+            <li>Voice Input everywhere</li>
+            <li>AI Weekly Check-In Coach</li>
+            <li>Text-to-Speech Cook Mode</li>
+            <li>Macro Coach</li>
+            <li>Budget Meal Generator</li>
+            <li>Grocery Optimizer</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_YwEGBnIyziDW6" class="plan-cta plan-cta-secondary">Start Free Trial</a>
+        </div>
+
+      </div>
+      <p class="pricing-footer">All plans include a 7-day free trial. Cancel before day 8 and you won't be charged. AI credits reset monthly.</p>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <section id="waitlist">
+    <div class="container">
+      <div class="waitlist-box">
+        <h2>Not ready to sign up?</h2>
+        <p>Drop your email and we'll send you the Sunday Prep Method — the exact system used to prep 7 days of keto food in one session.</p>
+        <form class="waitlist-form" id="waitlist-form">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <button type="submit">Send Me the System</button>
+        </form>
+        <div class="form-success" id="form-success">
+          ✓ You're in. Check your inbox for the Sunday Prep Method.
+        </div>
+        <p style="font-size:0.75rem;color:var(--slate-dim);margin-top:0.75rem">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <div class="footer">
-    <p>© 2026 Keto Contractor &nbsp;·&nbsp; <a href="https://ketocontractor.com">ketocontractor.com</a></p>
-  </div>
+  <footer>
+    <div class="footer-logo">
+      <img src="https://app.ketocontractor.com/kc-logo.png" alt="Keto Contractor" onerror="this.style.display='none'" />
+      Keto Contractor
+    </div>
+    <div class="footer-links">
+      <a href="https://app.ketocontractor.com/login">Sign In</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How It Works</a>
+      <a href="mailto:support@ketocontractor.com">Support</a>
+    </div>
+    <p class="footer-copy">© 2026 Keto Contractor. All rights reserved.</p>
+  </footer>
 
   <script>
+    // ── PARTICLE CANVAS ──
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.opacity = Math.random() * 0.45 + 0.1;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(6,182,212,${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = Array.from({ length: 70 }, () => new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 130) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(6,182,212,${0.12 * (1 - dist / 130)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+    resizeCanvas(); initParticles(); animateParticles();
+
+    // ── SCROLL FADE-UP ──
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+    // ── COUNTER ANIMATION ──
+    function animateCount(el, target, suffix, duration = 1400) {
+      const start = Date.now();
+      const timer = setInterval(() => {
+        const p = Math.min((Date.now() - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+        if (p >= 1) clearInterval(timer);
+      }, 16);
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          statObserver.unobserve(entry.target);
+          const nums = entry.target.querySelectorAll('.stat-num[data-count]');
+          nums.forEach(el => {
+            animateCount(el, +el.dataset.count, el.dataset.suffix || '');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statObserver.observe(statsEl);
+
+    // ── NAV SHADOW ON SCROLL ──
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow =
+        window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+    });
+
+    // ── EMAIL FORM ──
     const form = document.getElementById('waitlist-form');
     const success = document.getElementById('form-success');
-
     if (form) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -268,6 +1031,15 @@
         }
       });
     }
+
+    // ── SMOOTH SCROLL ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   </script>
 
 </body>
