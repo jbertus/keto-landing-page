@@ -2,7 +2,7 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
- 
+
   let email;
   try {
     const body = JSON.parse(event.body);
@@ -10,11 +10,11 @@ exports.handler = async (event) => {
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid request' }) };
   }
- 
+
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid email' }) };
   }
- 
+
   const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -28,17 +28,17 @@ exports.handler = async (event) => {
     <tr>
       <td align="center">
         <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
- 
+
           <!-- HEADER -->
           <tr>
             <td style="background:#0a0f1e;border-radius:16px 16px 0 0;padding:32px 40px;text-align:center;">
               <img src="https://app.ketocontractor.com/kc-logo.png" alt="Keto Contractor" width="64" height="64" style="border-radius:12px;display:block;margin:0 auto 16px;" />
               <p style="margin:0;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06b6d4;">Keto Contractor</p>
               <h1 style="margin:8px 0 0;font-size:28px;font-weight:900;color:#f8fafc;letter-spacing:-0.02em;line-height:1.2;">The Sunday Prep Method</h1>
-              <p style="margin:10px 0 0;font-size:15px;color:#94a3b8;line-height:1.6;">One day of prep. Seven days of food. Zero daily decisions.</p>
+              <p style="margin:10px 0 0;font-size:15px;color:#94a3b8;line-height:1.6;">One day of prep. Six days of food. Zero daily decisions.</p>
             </td>
           </tr>
- 
+
           <!-- INTRO -->
           <tr>
             <td style="background:#ffffff;padding:36px 40px 24px;">
@@ -46,7 +46,7 @@ exports.handler = async (event) => {
               <p style="margin:0;font-size:15px;color:#334155;line-height:1.7;">Here's the 5-step system:</p>
             </td>
           </tr>
- 
+
           <!-- STEP 1 -->
           <tr>
             <td style="background:#ffffff;padding:8px 40px;">
@@ -57,15 +57,15 @@ exports.handler = async (event) => {
                   </td>
                   <td style="padding-left:12px;">
                     <h2 style="margin:0 0 6px;font-size:16px;font-weight:800;color:#0f172a;">Saturday Night — Pick Your Recipes</h2>
-                    <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Open Keto Contractor and generate 2 recipes — one breakfast, one lunch. Scale each to 7 servings. That's your whole week. Check your pantry for what you already have, then let the app build your shopping list automatically.</p>
+                    <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Open Keto Contractor and generate 2 recipes — one breakfast, one lunch. Scale each to 6 servings. That's your whole week. Check your pantry for what you already have, then let the app build your shopping list automatically.</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
- 
+
           <tr><td style="background:#ffffff;padding:4px 40px;"><hr style="border:none;border-top:1px solid #f1f5f9;margin:12px 0;" /></td></tr>
- 
+
           <!-- STEP 2 -->
           <tr>
             <td style="background:#ffffff;padding:8px 40px;">
@@ -76,15 +76,15 @@ exports.handler = async (event) => {
                   </td>
                   <td style="padding-left:12px;">
                     <h2 style="margin:0 0 6px;font-size:16px;font-weight:800;color:#0f172a;">Sunday Morning — Grocery Run (30 min)</h2>
-                    <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Shop with your list. Buy in bulk — protein especially. If you don't have 7 meal prep containers, grab them while you're there. Get in, get out. This is logistics, not browsing.</p>
+                    <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Shop with your list. Buy in bulk — protein especially. If you don't have 6 meal prep containers, grab them while you're there. Get in, get out. This is logistics, not browsing.</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
- 
+
           <tr><td style="background:#ffffff;padding:4px 40px;"><hr style="border:none;border-top:1px solid #f1f5f9;margin:12px 0;" /></td></tr>
- 
+
           <!-- STEP 3 -->
           <tr>
             <td style="background:#ffffff;padding:8px 40px;">
@@ -101,9 +101,9 @@ exports.handler = async (event) => {
               </table>
             </td>
           </tr>
- 
+
           <tr><td style="background:#ffffff;padding:4px 40px;"><hr style="border:none;border-top:1px solid #f1f5f9;margin:12px 0;" /></td></tr>
- 
+
           <!-- STEP 4 -->
           <tr>
             <td style="background:#ffffff;padding:8px 40px;">
@@ -114,15 +114,15 @@ exports.handler = async (event) => {
                   </td>
                   <td style="padding-left:12px;">
                     <h2 style="margin:0 0 6px;font-size:16px;font-weight:800;color:#0f172a;">The Container System</h2>
-                    <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Portion everything into 7 containers per meal while it's still warm. Stack breakfast on the left shelf, lunch on the right. Label them if you want — or just count. Everything goes in the fridge Sunday night. The week is handled.</p>
+                    <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Portion everything into 6 containers per meal while it's still warm. Stack breakfast on the left shelf, lunch on the right. Label them if you want — or just count. Everything goes in the fridge Sunday night. The week is handled.</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
- 
+
           <tr><td style="background:#ffffff;padding:4px 40px;"><hr style="border:none;border-top:1px solid #f1f5f9;margin:12px 0;" /></td></tr>
- 
+
           <!-- STEP 5 -->
           <tr>
             <td style="background:#ffffff;padding:8px 40px 32px;">
@@ -132,14 +132,14 @@ exports.handler = async (event) => {
                     <div style="width:36px;height:36px;background:#ecfeff;border:1px solid #a5f3fc;border-radius:10px;text-align:center;line-height:36px;font-size:14px;font-weight:900;color:#06b6d4;">5</div>
                   </td>
                   <td style="padding-left:12px;">
-                    <h2 style="margin:0 0 6px;font-size:16px;font-weight:800;color:#0f172a;">Monday–Friday — Grab and Go</h2>
+                    <h2 style="margin:0 0 6px;font-size:16px;font-weight:800;color:#0f172a;">Monday–Saturday — Grab and Go</h2>
                     <p style="margin:0;font-size:14px;color:#475569;line-height:1.65;">Morning: grab your breakfast container, go. Lunch: same. No thinking, no deciding, no failing. You've already done the work. You show up to the job fueled and on track — every single day.</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
- 
+
           <!-- CTA -->
           <tr>
             <td style="background:#0f172a;padding:32px 40px;text-align:center;">
@@ -149,16 +149,23 @@ exports.handler = async (event) => {
               <p style="margin:16px 0 0;font-size:12px;color:#475569;">7-day free trial. Cancel anytime.</p>
             </td>
           </tr>
- 
+
           <!-- FOOTER -->
           <tr>
             <td style="background:#0a0f1e;border-radius:0 0 16px 16px;padding:24px 40px;text-align:center;">
-              <p style="margin:0;font-size:12px;color:#334155;line-height:1.6;">
+              <p style="margin:0 0 8px;font-size:12px;color:#334155;line-height:1.6;">
                 © 2026 Keto Contractor · <a href="mailto:support@ketocontractor.com" style="color:#475569;text-decoration:none;">support@ketocontractor.com</a>
+              </p>
+              <p style="margin:0 0 8px;font-size:11px;color:#475569;line-height:1.6;">
+                Keto Contractor · support@ketocontractor.com
+              </p>
+              <p style="margin:0;font-size:11px;color:#475569;line-height:1.6;">
+                You received this email because you requested the Sunday Prep Method at ketocontractor.com.<br />
+                Don't want to hear from us? <a href="mailto:support@ketocontractor.com?subject=Unsubscribe" style="color:#64748b;text-decoration:underline;">Click here to unsubscribe</a>.
               </p>
             </td>
           </tr>
- 
+
         </table>
       </td>
     </tr>
@@ -166,7 +173,7 @@ exports.handler = async (event) => {
 </body>
 </html>
   `.trim();
- 
+
   try {
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -181,13 +188,13 @@ exports.handler = async (event) => {
         html,
       }),
     });
- 
+
     if (!res.ok) {
       const err = await res.text();
       console.error('Resend error:', err);
       return { statusCode: 500, body: JSON.stringify({ error: 'Email failed to send' }) };
     }
- 
+
     return {
       statusCode: 200,
       body: JSON.stringify({ success: true }),
@@ -197,4 +204,3 @@ exports.handler = async (event) => {
     return { statusCode: 500, body: JSON.stringify({ error: 'Server error' }) };
   }
 };
- 
