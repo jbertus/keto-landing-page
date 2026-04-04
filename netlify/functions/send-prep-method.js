@@ -15,6 +15,23 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid email' }) };
   }
 
+  // ── SAVE TO SUPABASE ──
+  try {
+    await fetch(`${process.env.SUPABASE_URL}/rest/v1/lead_magnet_subscribers`, {
+      method: 'POST',
+      headers: {
+        'apikey': process.env.SUPABASE_SERVICE_ROLE_KEY,
+        'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'resolution=ignore-duplicates',
+      },
+      body: JSON.stringify({ email, source: 'sunday_prep_method' }),
+    });
+  } catch (err) {
+    console.error('Supabase save error:', err);
+    // don't block the email send if DB save fails
+  }
+
   const html = `
 <!DOCTYPE html>
 <html lang="en">
