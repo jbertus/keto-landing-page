@@ -133,6 +133,14 @@
     .form-input:focus { border-color: var(--cyan); }
     .form-input::placeholder { color: var(--slate-dim); }
 
+    .name-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .name-row .form-input {
+      flex: 1;
+    }
+
     .btn-submit {
       width: 100%;
       background: var(--cyan); color: #000;
@@ -172,6 +180,7 @@
 
     @media (max-width: 480px) {
       .card { padding: 2rem 1.5rem; }
+      .name-row { flex-direction: column; gap: 0; }
     }
   </style>
 </head>
@@ -200,13 +209,30 @@
 
     <hr class="divider" />
 
-    <label class="form-label" for="email-input">Send me the free system →</label>
+    <label class="form-label">Send me the free system →</label>
 
     <form id="waitlist-form">
+      <div class="name-row">
+        <input
+          class="form-input"
+          type="text"
+          name="first_name"
+          placeholder="First name"
+          required
+          autocomplete="given-name"
+        />
+        <input
+          class="form-input"
+          type="text"
+          name="last_name"
+          placeholder="Last name"
+          autocomplete="family-name"
+        />
+      </div>
       <input
-        id="email-input"
         class="form-input"
         type="email"
+        name="email"
         placeholder="your@email.com"
         required
         autocomplete="email"
@@ -234,14 +260,18 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = form.querySelector('button');
-        const email = form.querySelector('input[type="email"]').value;
         btn.textContent = 'Sending...';
         btn.disabled = true;
         try {
-          const res = await fetch('/.netlify/functions/send-prep-method', {
+          const res = await fetch('https://app.ketocontractor.com/.netlify/functions/capture-lead', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email }),
+            body: JSON.stringify({
+              first_name: form.first_name.value,
+              last_name: form.last_name.value,
+              email: form.email.value,
+              source: 'sunday_prep_method'
+            }),
           });
           if (res.ok) {
             form.style.display = 'none';
