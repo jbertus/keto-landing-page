@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profit Forge — 8 Service Businesses Powered by Tool Arbitrage</title>
+  <meta name="description" content="Buy a $50/month tool. Sell the output for $500-2,000/month. 8 pre-built service businesses with 85-95% margins. $99 on Gumroad.">
+  <meta property="og:title" content="Profit Forge — Tool Arbitrage Service Package">
+  <meta property="og:description" content="8 done-for-you service businesses. Complete playbooks. 85-95% margins. $99.">
+  <link rel="icon" href="https://app.ketocontractor.com/kc-logo.png">
+  <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#0f172a;--bg3:#131b2d;--border:#1e293b;--white:#f8fafc;--slate:#94a3b8;--dim:#475569;--amber:#f59e0b;--amber-dk:#d97706;--ag:rgba(245,158,11,.15);--cyan:#06b6d4;--emerald:#10b981;--red:#ef4444;--purple:#a855f7}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1140px;margin:0 auto;padding:0 1.5rem}
+section{padding:5rem 1.25rem}
+.bg2{background:var(--bg2)}
+.section-label{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);margin-bottom:.75rem}
+h2{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem}
+h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.subtitle{color:var(--slate);max-width:600px;font-size:1.05rem;line-height:1.65;margin-bottom:2rem}
+p{color:var(--slate);line-height:1.65}
+strong{color:var(--white)}
+.nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(10,15,30,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:1.25rem;font-weight:800}.nav-logo span{color:var(--amber)}
+.nav-links{display:flex;gap:1.75rem}.nav-links a{font-size:.9rem;color:var(--slate);transition:color .25s}.nav-links a:hover{color:var(--white)}
+.nav-cta{background:linear-gradient(135deg,var(--amber),var(--amber-dk));color:#000;font-weight:700;font-size:.85rem;padding:.5rem 1.25rem;border-radius:8px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px var(--ag)}
+.hero{position:relative;text-align:center;padding:7rem 1.25rem 5rem;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 50% 40%,var(--ag),transparent 70%)}
+#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--amber);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:100px;margin-bottom:1.5rem}
+.badge-dot{width:6px;height:6px;background:var(--amber);border-radius:50%;animation:pulse 2s infinite}
+h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.25rem;color:var(--white)}
+.accent{color:var(--cyan)}.accent-fire{color:var(--amber)}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.2rem);color:var(--slate);max-width:640px;margin:0 auto 2rem;line-height:1.65}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-bottom:3rem}
+.hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.stat{text-align:center}.stat-num{font-size:1.75rem;font-weight:900;color:var(--amber)}.stat-label{font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:.95rem;padding:.75rem 1.75rem;border-radius:8px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.btn-primary{background:linear-gradient(135deg,var(--amber),var(--amber-dk));color:#000}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,158,11,.4)}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s;pointer-events:none}
+.btn-primary:hover::after{left:120%}
+.btn-secondary{background:transparent;color:var(--slate);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--dim);color:var(--white);transform:translateY(-2px)}
+.btn-lg{padding:1rem 2.25rem;font-size:1.05rem;border-radius:12px}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);border-color:var(--amber);box-shadow:0 8px 32px var(--ag)}
+.service-icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border-radius:14px;margin-bottom:1rem}
+.service-icon.amber{background:rgba(245,158,11,.12);box-shadow:0 0 20px rgba(245,158,11,.15)}
+.service-icon.cyan{background:rgba(6,182,212,.12);box-shadow:0 0 20px rgba(6,182,212,.15)}
+.service-icon.emerald{background:rgba(16,185,129,.12);box-shadow:0 0 20px rgba(16,185,129,.15)}
+.service-icon.purple{background:rgba(168,85,247,.12);box-shadow:0 0 20px rgba(168,85,247,.15)}
+.service-icon.red{background:rgba(239,68,68,.12);box-shadow:0 0 20px rgba(239,68,68,.15)}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.tag{display:inline-flex;padding:.25rem .7rem;font-size:.72rem;font-weight:600;border-radius:100px;letter-spacing:.02em}
+.tag-green{background:rgba(16,185,129,.12);color:var(--emerald)}
+.tag-amber{background:rgba(245,158,11,.12);color:var(--amber)}
+.tag-blue,.tag-cyan{background:rgba(6,182,212,.12);color:var(--cyan)}
+.tag-purple{background:rgba(168,85,247,.12);color:var(--purple)}
+.tag-red{background:rgba(239,68,68,.12);color:var(--red)}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1.5rem;margin-top:2rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.5rem;margin-top:2rem}
+.flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.75rem;margin:2.5rem 0}
+.flow-node{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1rem 1.5rem;text-align:center;min-width:140px;transition:border-color .25s}
+.flow-node strong{display:block;color:var(--white);margin-bottom:.25rem}
+.flow-node span{font-size:.85rem;color:var(--slate)}
+.flow-arrow{color:var(--dim);font-size:1.4rem}
+.callout{background:var(--bg3);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-top:2rem;max-width:700px}
+.callout p{color:var(--slate);font-style:italic;margin:0}
+.revenue-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;text-align:center;transition:transform .25s,border-color .25s,box-shadow .25s}
+.revenue-card:hover{transform:translateY(-5px);border-color:var(--amber);box-shadow:0 8px 32px var(--ag)}
+.revenue-card h3{font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--amber),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:.75rem 0}
+.revenue-card.featured{border-color:var(--amber);animation:featuredPulse 3s ease-in-out infinite}
+.table-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:16px;overflow-x:auto;margin-top:2rem}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;padding:1rem 1.25rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);background:var(--bg2);border-bottom:1px solid var(--border)}
+td{padding:.9rem 1.25rem;font-size:.95rem;color:var(--slate);border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(245,158,11,.04)}
+.faq-item{background:var(--bg3);border:1px solid var(--border);border-radius:16px;margin-bottom:.75rem;overflow:hidden}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;font-weight:600;cursor:pointer;list-style:none;color:var(--white)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'';width:10px;height:10px;border-right:2px solid var(--slate);border-bottom:2px solid var(--slate);transform:rotate(45deg);transition:transform .3s;flex-shrink:0;margin-left:1rem}
+.faq-item[open] summary::after{transform:rotate(-135deg);border-color:var(--amber)}
+.faq-item[open]{border-color:var(--amber)}
+.faq-answer{padding:0 1.5rem 1.25rem;color:var(--slate);font-size:.95rem;line-height:1.7}
+.cta-banner{text-align:center;padding:3.5rem 2.5rem;border-radius:16px;background:var(--bg3);border:1px solid var(--amber);box-shadow:0 0 60px var(--ag);margin-bottom:2rem}
+.cta-banner h2{margin-bottom:.75rem}
+.cta-banner .hero-badge{margin-bottom:1.25rem}
+.cta-mini-stats{display:flex;justify-content:center;gap:2rem;margin:1.5rem 0}
+.cta-mini-stats .stat-num{font-size:1.5rem}
+.guarantee{text-align:center;padding:2.5rem;border:2px solid var(--amber);border-radius:16px;background:var(--bg3);max-width:640px;margin:0 auto;box-shadow:0 0 40px var(--ag)}
+.guarantee h3{color:var(--amber);margin-bottom:.75rem}
+.footer{border-top:1px solid var(--border);padding:2.5rem 1.25rem;text-align:center;color:var(--dim);font-size:.85rem}
+.hero-icon{display:block;margin:0 auto 1.5rem}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes featuredPulse{0%,100%{box-shadow:0 0 20px var(--ag)}50%{box-shadow:0 0 40px rgba(245,158,11,.3)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float{animation:float 3s ease-in-out infinite}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){.nav-links{display:none}.hero{padding:5rem 1.25rem 3rem}section{padding:3.5rem 1.25rem}.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg)}.revenue-card h3{font-size:2rem}.cta-banner{padding:2.5rem 1.5rem}.table-wrap table{min-width:540px}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">Profit<span>Forge</span></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#revenue">Revenue</a>
+    <a href="#included">What's Included</a>
+  </div>
+  <a href="#buy" class="nav-cta">Get Profit Forge</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="hero-badge"><span class="badge-dot"></span> Tool Arbitrage Business System</div>
+    <svg class="hero-icon float" width="160" height="160" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="ga" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feFlood flood-color="#f59e0b" flood-opacity="0.6" result="c"/><feComposite in="c" in2="b" operator="in" result="s"/><feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="gc" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#06b6d4" flood-opacity="0.5" result="c"/><feComposite in="c" in2="b" operator="in" result="s"/><feMerge><feMergeNode in="s"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M50 130L130 130L140 145Q140 155 130 155L50 155Q40 155 40 145Z" fill="#4b5563" stroke="#6b7280" stroke-width="1.5"/>
+      <path d="M60 100L120 100L130 130L50 130Z" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+      <rect x="45" y="90" width="90" height="12" rx="3" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+      <path d="M45 90Q25 93 20 96Q25 99 45 102" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+      <ellipse cx="90" cy="90" rx="30" ry="4" fill="#f59e0b" opacity="0.25"><animate attributeName="opacity" values="0.15;0.35;0.15" dur="1.5s" repeatCount="indefinite"/></ellipse>
+      <circle cx="80" cy="70" r="3" fill="#f59e0b" filter="url(#ga)"><animate attributeName="cy" values="80;30;80" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="95" cy="65" r="2.5" fill="#06b6d4" filter="url(#gc)"><animate attributeName="cy" values="75;25;75" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle>
+      <circle cx="105" cy="72" r="2" fill="#f59e0b" filter="url(#ga)"><animate attributeName="cy" values="78;20;78" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0;0.8" dur="2.8s" repeatCount="indefinite"/></circle>
+      <circle cx="70" cy="68" r="1.5" fill="#fbbf24" filter="url(#ga)"><animate attributeName="cy" values="82;35;82" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite"/></circle>
+      <text x="75" y="55" font-size="12" font-weight="bold" fill="#f59e0b" filter="url(#ga)">$<animate attributeName="y" values="70;10;70" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.9;0;0.9" dur="3.2s" repeatCount="indefinite"/></text>
+      <text x="100" y="50" font-size="10" font-weight="bold" fill="#06b6d4" filter="url(#gc)">$<animate attributeName="y" values="65;5;65" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0;0.8" dur="2.6s" repeatCount="indefinite"/></text>
+    </svg>
+    <h1>Buy the tool for <span class="accent">$50/month</span>.<br>Sell the output for <span class="accent-fire">$2,000/month</span>.</h1>
+    <p class="hero-sub">8 complete service businesses built on tool arbitrage. Subscribe to cheap AI tools, sell professional-grade output at consulting rates. <strong>85-95% profit margins.</strong></p>
+    <div class="hero-ctas">
+      <a href="#buy" class="btn btn-primary btn-lg">Get Profit Forge — $99</a>
+      <a href="#services" class="btn btn-secondary btn-lg">See All 8 Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Services</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Frameworks</div></div>
+      <div class="stat"><div class="stat-num">85-95%</div><div class="stat-label">Margins</div></div>
+      <div class="stat"><div class="stat-num">$50</div><div class="stat-label">Tool Cost</div></div>
+      <div class="stat"><div class="stat-num">14</div><div class="stat-label">Industries</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">THE MODEL</div>
+      <h2>What Is Tool Arbitrage?</h2>
+      <p class="subtitle">Subscribe to powerful AI tools at consumer prices. Package the output as professional services. Keep the difference.</p>
+    </div>
+    <div class="flow fade-up">
+      <div class="flow-node">
+        <strong>Subscribe</strong>
+        <span>$50/mo tool cost</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <strong>Produce</strong>
+        <span>20 min per deliverable</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <strong>Add Expertise</strong>
+        <span>15 min review &amp; polish</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <strong>Sell</strong>
+        <span>$500–2,000 per client</span>
+      </div>
+    </div>
+    <div class="callout fade-up">
+      <p>"The tool does 80% of the work. Your expertise does the last 20%. The client pays for the result — not your hours."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 SERVICES -->
+<section id="services" class="bg2">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">THE SERVICES</div>
+      <h2>8 Businesses. One Playbook Each.</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card fade-up">
+        <div class="service-icon amber">🔥</div>
+        <h3>Lead Furnace</h3>
+        <p>Automated lead enrichment that books meetings on autopilot. Turn raw lists into qualified pipeline.</p>
+        <div><span class="tag tag-green">$500–2,500/mo</span> <span class="tag tag-amber">85–92% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon cyan">📊</div>
+        <h3>Report Forge</h3>
+        <p>Generate professional reports and audits at scale. Clients get boardroom-ready deliverables in 48 hours.</p>
+        <div><span class="tag tag-green">$500–1,500/report</span> <span class="tag tag-amber">85–94% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon amber">🦅</div>
+        <h3>Price Hawk</h3>
+        <p>Real-time competitor price monitoring and alerts. Your clients never miss a market shift again.</p>
+        <div><span class="tag tag-green">$200–750/mo</span> <span class="tag tag-amber">85–89% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon emerald">🪙</div>
+        <h3>Minutes Mint</h3>
+        <p>AI-powered meeting intelligence — summaries, action items, and follow-ups delivered automatically.</p>
+        <div><span class="tag tag-green">$300–900/mo</span> <span class="tag tag-amber">92–93% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon cyan">🔗</div>
+        <h3>LinkedIn Siphon</h3>
+        <p>Systematic LinkedIn prospecting that fills calendars. Personalized outreach at machine speed.</p>
+        <div><span class="tag tag-green">$600–1,800/mo</span> <span class="tag tag-amber">88–92% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon purple">🏭</div>
+        <h3>Social Assembly</h3>
+        <p>Full social media management — content creation, scheduling, and analytics across every platform.</p>
+        <div><span class="tag tag-green">$400–1,200/mo</span> <span class="tag tag-amber">90–93% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon red">🧠</div>
+        <h3>Prediction Engine</h3>
+        <p>Predictive models and forecasting dashboards. Give clients a crystal ball for their business decisions.</p>
+        <div><span class="tag tag-green">$1,000–3,500/project</span> <span class="tag tag-amber">85–95% margin</span></div>
+      </div>
+      <div class="card fade-up">
+        <div class="service-icon amber">📡</div>
+        <h3>Content Radar</h3>
+        <p>Comprehensive content audits with actionable SEO and engagement recommendations.</p>
+        <div><span class="tag tag-green">$300–800/audit</span> <span class="tag tag-amber">88–93% margin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE MATH -->
+<section id="revenue">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">THE MATH</div>
+      <h2>Real Revenue. Real Margins.</h2>
+    </div>
+    <div class="grid-3 fade-up">
+      <div class="revenue-card">
+        <h3>Part-Time</h3>
+        <div class="revenue-timeline">3 months to ramp</div>
+        <div class="revenue-amount">$4,100<span>/mo</span></div>
+        <ul>
+          <li>2 services running</li>
+          <li>3–5 clients</li>
+          <li>10–15 hrs/week</li>
+        </ul>
+        <div class="revenue-cost">Tool cost: $50–100/mo</div>
+      </div>
+      <div class="revenue-card featured">
+        <h3>Full-Time</h3>
+        <div class="revenue-timeline">6 months to ramp</div>
+        <div class="revenue-amount">$11,000<span>/mo</span></div>
+        <ul>
+          <li>4 services running</li>
+          <li>8–12 clients</li>
+          <li>30–40 hrs/week</li>
+        </ul>
+        <div class="revenue-cost">Tool cost: $150–250/mo</div>
+      </div>
+      <div class="revenue-card">
+        <h3>Agency</h3>
+        <div class="revenue-timeline">12 months to ramp</div>
+        <div class="revenue-amount">$32,400<span>/mo</span></div>
+        <ul>
+          <li>All 8 services</li>
+          <li>20–30 clients</li>
+          <li>Team of 3–5</li>
+        </ul>
+        <div class="revenue-cost">Tool cost: $300–500/mo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFICULTY RANKING -->
+<section id="ranking">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">WHERE TO START</div>
+      <h2>Pick Your Starting Point</h2>
+    </div>
+    <div class="table-wrap fade-up">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Service</th><th>Why</th><th>First Client</th><th>Difficulty</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Minutes Mint</td><td>Fastest to deliver, every company has meetings</td><td>1–2 weeks</td><td><span class="tag tag-green">Easy</span></td></tr>
+          <tr><td>2</td><td>Content Radar</td><td>Clear deliverable, easy to showcase results</td><td>2–3 weeks</td><td><span class="tag tag-green">Easy</span></td></tr>
+          <tr><td>3</td><td>Social Assembly</td><td>Recurring revenue, visible output clients love</td><td>2–3 weeks</td><td><span class="tag tag-green">Easy</span></td></tr>
+          <tr><td>4</td><td>Report Forge</td><td>High perceived value per deliverable</td><td>2–4 weeks</td><td><span class="tag tag-amber">Medium</span></td></tr>
+          <tr><td>5</td><td>Price Hawk</td><td>Sticky service, hard for clients to cancel</td><td>3–4 weeks</td><td><span class="tag tag-amber">Medium</span></td></tr>
+          <tr><td>6</td><td>LinkedIn Siphon</td><td>Direct ROI — meetings booked are easy to measure</td><td>3–5 weeks</td><td><span class="tag tag-amber">Medium</span></td></tr>
+          <tr><td>7</td><td>Lead Furnace</td><td>Highest revenue ceiling, requires sales chops</td><td>4–6 weeks</td><td><span class="tag tag-red">Advanced</span></td></tr>
+          <tr><td>8</td><td>Prediction Engine</td><td>Premium pricing, needs domain expertise</td><td>6–8 weeks</td><td><span class="tag tag-red">Advanced</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section id="included" class="bg2">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">WHAT YOU GET</div>
+      <h2>Everything Inside Profit Forge</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card fade-up">
+        <span class="tag tag-amber">Blueprints</span>
+        <h3>8 Service Blueprints</h3>
+        <p>Complete step-by-step playbooks for each service — from tool setup to client delivery workflows.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-blue">Pricing</span>
+        <h3>3-Tier Pricing Framework</h3>
+        <p>Starter, Growth, and Premium tiers pre-calculated for each service with margin analysis built in.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-green">Acquisition</span>
+        <h3>Client Acquisition Templates</h3>
+        <p>Cold outreach scripts, proposal templates, and onboarding docs ready to customize and send.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-purple">Operations</span>
+        <h3>Delivery SOPs</h3>
+        <p>Standard operating procedures for every service so you deliver consistent, professional results.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-red">Tools</span>
+        <h3>Tools-to-Service Matrix</h3>
+        <p>Exact tool recommendations mapped to each service with cost breakdowns and alternatives.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-amber">Bundles</span>
+        <h3>Bundle Strategies</h3>
+        <p>Combine services into high-value packages that increase revenue per client by 2-3x.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section id="forwho">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">WHO IT'S FOR</div>
+      <h2>Built For People Who Execute</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card fade-up">
+        <span class="tag tag-amber">Freelancers</span>
+        <h3>Freelancers</h3>
+        <p>You already sell your skills — now multiply your output 10x with AI tools and keep your rates the same.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-cyan">Entrepreneurs</span>
+        <h3>Entrepreneurs</h3>
+        <p>Launch a lean service business with near-zero overhead. No employees, no office, no inventory.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-green">Consultants</span>
+        <h3>Consultants</h3>
+        <p>Add productized service packages to your consulting practice and create recurring revenue streams.</p>
+      </div>
+      <div class="card fade-up">
+        <span class="tag tag-purple">Agency Owners</span>
+        <h3>Agency Owners</h3>
+        <p>Expand your service menu overnight. Offer new capabilities to existing clients without hiring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">QUESTIONS</div>
+      <h2>Common Questions</h2>
+    </div>
+    <div class="faq-list fade-up">
+      <details class="faq-item">
+        <summary>Do I need technical skills to run these services?</summary>
+        <div class="faq-answer"><p>No. Each blueprint walks you through the exact tool setup and workflow. If you can follow step-by-step instructions, you can deliver the service.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Which service should I start with first?</summary>
+        <div class="faq-answer"><p>We recommend Minutes Mint or Content Radar. They have the fastest time-to-revenue, lowest complexity, and strongest demand across all 14 verticals.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How much do the AI tools cost?</summary>
+        <div class="faq-answer"><p>Most services run on tools costing $20-200/mo. Your first client covers the tool cost, and every client after that is nearly pure profit.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How quickly can I land my first client?</summary>
+        <div class="faq-answer"><p>Most users land their first paying client within 1-6 weeks using the included acquisition templates and outreach scripts.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I run multiple services at once?</summary>
+        <div class="faq-answer"><p>Yes. The bundle strategies guide shows you exactly how to package services together for higher per-client revenue and stickier retention.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What exactly do I get when I purchase?</summary>
+        <div class="faq-answer"><p>8 full service blueprints, 5 business frameworks, and coverage across 14 industry verticals — all delivered as Claude Code skill files for instant use.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- BUY CTA -->
+<section id="buy">
+  <div class="container" style="max-width:800px">
+    <div class="cta-banner fade-up">
+      <div class="hero-badge"><span class="badge-dot"></span> Launch Pricing</div>
+      <h2>Get All 8 Service Businesses for <span class="accent">$99</span></h2>
+      <p class="lead">Everything you need to start selling AI-powered services this week. One purchase, lifetime access.</p>
+      <div class="hero-stats" style="justify-content:center">
+        <div class="stat"><div class="stat-num">8</div><div class="stat-label">Blueprints</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Frameworks</div></div>
+        <div class="stat"><div class="stat-num">14</div><div class="stat-label">Verticals</div></div>
+      </div>
+      <a href="https://profitforge.gumroad.com/l/profit-forge" class="btn btn-primary btn-lg">Buy Now — $99</a>
+      <p class="small-text">Instant download</p>
+    </div>
+    <div class="guarantee-box fade-up">
+      <h3>The Math Guarantee</h3>
+      <p>If you follow one blueprint and don't earn back the $99 from your first client, we failed — not you. Every service is designed to generate $500+ from a single engagement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="container" style="text-align:center">
+    <h2 class="fade-up">Stop Trading Hours for Dollars.<br><span class="accent-fire">Start Selling Output.</span></h2>
+    <p class="subtitle fade-up">The tools exist. The playbooks are written. The only variable is you.</p>
+    <a href="#buy" class="btn btn-primary btn-lg fade-up">Get Profit Forge — $99</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" style="border-top:1px solid rgba(255,255,255,0.1)">
+  <div class="container" style="text-align:center">
+    <p><strong>Profit Forge</strong> — Tool Arbitrage Service Package</p>
+    <p class="small-text">8 Blueprints &middot; 5 Frameworks &middot; 14 Verticals &middot; 85-95% Margins</p>
+    <p class="small-text">&copy; 2026 Profit Forge. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Particle Canvas
+  const c=document.getElementById('hero-canvas'),ctx=c?c.getContext('2d'):null;
+  let ps=[];
+  function resize(){if(!c)return;c.width=c.offsetWidth;c.height=c.offsetHeight}
+  function mkP(){return{x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+.4,o:Math.random()*.35+.1,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}}
+  function init(){resize();ps=[];for(let i=0;i<70;i++)ps.push(mkP())}
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(let i=0;i<ps.length;i++){
+      let p=ps[i];p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>c.width)p.vx*=-1;
+      if(p.y<0||p.y>c.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(245,158,11,'+p.o+')';ctx.fill();
+      for(let j=i+1;j<ps.length;j++){
+        let dx=p.x-ps[j].x,dy=p.y-ps[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<130){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(ps[j].x,ps[j].y);
+        ctx.strokeStyle='rgba(245,158,11,'+(0.12*(1-d/130))+')';ctx.lineWidth=.5;ctx.stroke()}
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  if(c){window.addEventListener('resize',()=>{resize()});init();draw()}
+
+  // Scroll fade-up
+  const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}})},{threshold:.12});
+  document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+  // Nav shadow
+  const nav=document.querySelector('.nav');
+  if(nav)window.addEventListener('scroll',()=>{nav.style.boxShadow=scrollY>20?'0 2px 24px rgba(0,0,0,.3)':'none'});
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+})()
+</script>
+</body>
+</html>
