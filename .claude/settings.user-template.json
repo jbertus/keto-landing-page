@@ -1,0 +1,26 @@
+{
+  "_comment": "Jeremy's Rule hooks. Merge this into your user-level settings at %USERPROFILE%\\.claude\\settings.json. See .claude/INSTALL-HOOKS.md for install steps.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"%USERPROFILE%\\.claude\\hooks\\load-claude-md.ps1\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"%USERPROFILE%\\.claude\\hooks\\require-size.ps1\""
+          }
+        ]
+      }
+    ]
+  }
+}
