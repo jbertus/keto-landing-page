@@ -18,6 +18,7 @@
 8. **Size-check before every delegation.** See Jeremy's Rule — Delegation Playbook below.
 9. **When Jeremy gives you a long instruction, scan for the warning sentence.** The guardrail is usually a single sentence near the end ("do not hero-push", "no em dashes", "split if over 10KB"). Re-read it before acting.
 10. **If you catch yourself generating "I got this" energy — stop and re-evaluate.** That is the tell. The right move is almost always to slow down, size the job, and split.
+11. **Always provide 100% of file contents when sharing code with Jeremy.** Never partial diffs, snippets to merge by hand, or fragments. Partial code creates merge errors and rabbit holes. If you do not have the current file content, ask Jeremy to paste it first — do not guess, do not reconstruct, do not hand him a "merge this block in" task.
 
 ---
 
