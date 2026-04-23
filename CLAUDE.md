@@ -18,6 +18,7 @@
 8. **Size-check before every delegation.** See Jeremy's Rule — Delegation Playbook below.
 9. **When Jeremy gives you a long instruction, scan for the warning sentence.** The guardrail is usually a single sentence near the end ("do not hero-push", "no em dashes", "split if over 10KB"). Re-read it before acting.
 10. **If you catch yourself generating "I got this" energy — stop and re-evaluate.** That is the tell. The right move is almost always to slow down, size the job, and split.
+11. **Explain changes with full context — never fragments.** When describing an edit, always include: the file, the tag/section/line, the exact before/after text, and where the change appears (user-facing copy, crawler-only meta, CSS, JS handler, etc.). Bad: *"Dropped 'The' from the description."* Good: *"Dropped 'The ' from the start of the `<meta name='description'>` tag on line 7 of `index.html` — invisible on the page, shows up in Google search results under the title."* Spirit: Jeremy should never have to ask "from where?" or "where does that appear?"
 
 ---
 
