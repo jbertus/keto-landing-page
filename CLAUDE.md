@@ -49,13 +49,34 @@
 ---
 
 ## TODO List
-### High Priority
+### High Priority — Awaiting Jeremy review (2026-05-11)
+- [ ] **T2D Rebrand pass complete in `index.html` (NOT YET COMMITTED).** Jeremy to review before commit + push. Scope of changes:
+  - `<title>`, `<meta name="description">`, `<meta property="og:title">`, `<meta property="og:description">` all rebranded to T2D positioning
+  - Hero badge: "AI-Powered Keto Meal Prep" → "Built for Type 2 Diabetes"
+  - Hero H1: "One Sunday. Seven days of food." → "The first meal plan built for type 2 diabetics."
+  - Hero subhead: contractor work-hard language → T2D-focused friction removers
+  - Hero stats: dropped "1 day To Prep" → "5 min To Plan Your Week" + "Fiber Tracked Every Meal"
+  - Problem section H2: "Keto fails when life gets busy." → "Diabetic meal planning is broken."
+  - Problem cards (3): rewritten with MyFitnessPal-no-diabetes-avatar angle, generic-plans-don't-fit-real-life, carb-math-eats-mental-energy
+  - How section H2: "Prep once. Eat right all week." → "We do the math. You eat the food."
+  - How steps (3): rewritten as Tell us about you / Get your week / Cook however you cook — schedule-agnostic
+  - Features grid: ADDED 3 new feature cards at the top — **Metabolic Coach**, **Hack the Menu (Beta)**, **Share Your Win**. Existing 9 features preserved, AI Recipe Generator copy lightly tweaked
+  - For Who story: rewritten to make T2D the first frame (still keeps the contractor/job-site origin context, no medical outcome claims)
+  - For Who avatars: replaced 7 worker-focused tags (Contractors, Tradespeople, Nurses, Truck Drivers, Construction Workers, Busy Professionals, Parents) with 7 T2D segments (Newly Diagnosed, Type 2 on Metformin, Type 2 on Insulin, Pre-Diabetic, Type 2 Over 50, Caregivers, Anyone Tired of Guessing)
+  - Waitlist lead magnet: "Sunday Prep Method" → "T2D Macro Map" (how to split daily carbs across meals)
+  - Hero image + For Who image alt text updated to T2D-positioned
+
+- [ ] **OPEN QUESTION — plan name swap.** The pricing section shows: Hustle $29 / Grind $49 (Most Popular) / Elevate $89. The Keto Contractor app CLAUDE.md says: Grind $29 / Hustle $49 / Elevate $89. Direct contradiction. One source is wrong. Jeremy to decide which is correct, fix the other source.
+
+- [ ] **OPEN QUESTION — images.** Current photos are worker-coded (men in work shirts holding meals). After Jeremy reviews the copy, consider whether to commission new T2D-positioned images (e.g. diabetic couple cooking together, older adult with cookbook, fresh produce close-ups). The "Keto contractor fuel and strength 2.png" image in the For Who section remains worker-themed but the surrounding copy now contextualizes it as the founder's own story.
+
+### Pre-existing High Priority
 - [ ] Fill in project stack, routes, deploy targets in this file
 - [ ] Document any edge functions / serverless endpoints
 - [ ] Fix DNS records on ketocontractor.com so lead-magnet emails don't go to spam (cross-repo task, tracked here for landing page email sends)
 
 ### Medium Priority
-- [ ] Wire Sunday Prep lead magnet delivery (SMTP / Resend / provider TBD)
+- [ ] Wire T2D Macro Map lead magnet delivery (SMTP / Resend / provider TBD). NOTE: lead-magnet name changed from "Sunday Prep Method" to "T2D Macro Map" — whatever email autoresponder is wired must deliver the new asset.
 - [ ] Confirm Meta pixel + conversion events on all CTAs
 
 ---
