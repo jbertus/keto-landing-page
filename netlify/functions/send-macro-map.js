@@ -58,8 +58,8 @@ exports.handler = async (event) => {
           <!-- INTRO -->
           <tr>
             <td style="background:#ffffff;padding:36px 40px 24px;">
-              <p style="margin:0 0 16px;font-size:15px;color:#334155;line-height:1.7;">If you have Type 2 diabetes, "watch your carbs" is the most useless advice you'll ever get. <strong>How many carbs, in which meals, with what protein and fat, and what changes if you add a snack or have dessert</strong> — those are the actual questions.</p>
-              <p style="margin:0 0 16px;font-size:15px;color:#334155;line-height:1.7;">Below is the full framework. Every calculation, every rule, every override. We'll use a baseline example user — <strong>Sarah, 165 lbs, lightly active, Type 2 on Metformin</strong> — so you can see the numbers land.</p>
+              <p style="margin:0 0 16px;font-size:15px;color:#334155;line-height:1.7;">If you have Type 2 diabetes, "watch your carbs" is the most useless advice you'll ever get. <strong>How many carbs, in which meals, with what protein and fat, and what changes if you add a snack or have dessert</strong>, those are the actual questions.</p>
+              <p style="margin:0 0 16px;font-size:15px;color:#334155;line-height:1.7;">Below is the full framework. Every calculation, every rule, every override. We'll use a baseline example user, <strong>Sarah, 165 lbs, lightly active, Type 2 on Metformin</strong>, so you can see the numbers land.</p>
               <p style="margin:0;font-size:13px;color:#64748b;line-height:1.6;font-style:italic;">Educational, not medical advice. Talk to your doctor before changing anything that affects your management plan, especially if you're on insulin or other glucose-affecting medication.</p>
             </td>
           </tr>
@@ -93,7 +93,7 @@ exports.handler = async (event) => {
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:13px;color:#334155;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
                 <tr style="background:#f8fafc;"><td style="padding:8px 10px;font-weight:700;">Activity</td><td style="padding:8px 10px;font-weight:700;text-align:right;">Multiplier</td></tr>
                 <tr><td style="padding:8px 10px;border-top:1px solid #e2e8f0;">Sedentary (desk job)</td><td style="padding:8px 10px;border-top:1px solid #e2e8f0;text-align:right;">×1.2</td></tr>
-                <tr style="background:#ecfeff;"><td style="padding:8px 10px;border-top:1px solid #e2e8f0;"><strong>Lightly active (1–3×/wk)</strong> — Sarah</td><td style="padding:8px 10px;border-top:1px solid #e2e8f0;text-align:right;"><strong>×1.375</strong></td></tr>
+                <tr style="background:#ecfeff;"><td style="padding:8px 10px;border-top:1px solid #e2e8f0;"><strong>Lightly active (1–3×/wk)</strong>, Sarah</td><td style="padding:8px 10px;border-top:1px solid #e2e8f0;text-align:right;"><strong>×1.375</strong></td></tr>
                 <tr><td style="padding:8px 10px;border-top:1px solid #e2e8f0;">Moderately active (3–5×/wk)</td><td style="padding:8px 10px;border-top:1px solid #e2e8f0;text-align:right;">×1.55</td></tr>
                 <tr><td style="padding:8px 10px;border-top:1px solid #e2e8f0;">Very active (6–7×/wk)</td><td style="padding:8px 10px;border-top:1px solid #e2e8f0;text-align:right;">×1.725</td></tr>
                 <tr><td style="padding:8px 10px;border-top:1px solid #e2e8f0;">Extra active (physical job + training)</td><td style="padding:8px 10px;border-top:1px solid #e2e8f0;text-align:right;">×1.9</td></tr>
@@ -120,7 +120,7 @@ exports.handler = async (event) => {
                   <td style="padding:9px 11px;border-top:1px solid #e2e8f0;text-align:right;">~18g</td>
                 </tr>
                 <tr style="background:#fff7ed;">
-                  <td style="padding:9px 11px;border-top:1px solid #e2e8f0;"><strong>Type 2 on medication</strong> (Metformin, etc.) — Sarah</td>
+                  <td style="padding:9px 11px;border-top:1px solid #e2e8f0;"><strong>Type 2 on medication</strong> (Metformin, etc.), Sarah</td>
                   <td style="padding:9px 11px;border-top:1px solid #e2e8f0;text-align:center;">7%</td>
                   <td style="padding:9px 11px;border-top:1px solid #e2e8f0;text-align:right;"><strong>~25g</strong></td>
                 </tr>
@@ -170,7 +170,7 @@ exports.handler = async (event) => {
           <tr>
             <td style="background:#ffffff;padding:20px 40px 28px;">
               <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#06b6d4;letter-spacing:0.05em;text-transform:uppercase;">Step A6 · Daily Fiber Target</p>
-              <p style="margin:0 0 10px;font-size:14px;color:#475569;line-height:1.65;">ADA recommends roughly <strong>14 g fiber per 1,000 cal</strong> for T2D — fiber slows glucose absorption and reduces net carb impact.</p>
+              <p style="margin:0 0 10px;font-size:14px;color:#475569;line-height:1.65;">ADA recommends roughly <strong>14 g fiber per 1,000 cal</strong> for T2D, fiber slows glucose absorption and reduces net carb impact.</p>
               <div style="background:#f8fafc;border-left:3px solid #06b6d4;padding:10px 12px;border-radius:0 6px 6px 0;font-size:13px;color:#334155;line-height:1.6;">
                 <strong>Math:</strong> 1400 × 14 ÷ 1000 = <strong>~20 g fiber/day</strong>
               </div>
@@ -180,8 +180,8 @@ exports.handler = async (event) => {
           <!-- A SUMMARY -->
           <tr>
             <td style="background:#ecfeff;padding:18px 40px;border-top:1px solid #a5f3fc;border-bottom:1px solid #a5f3fc;">
-              <p style="margin:0;font-size:13px;color:#0e7490;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">Sarah's daily targets — finished computing 6 numbers</p>
-              <p style="margin:6px 0 0;font-size:14px;color:#0f172a;line-height:1.6;"><strong>1,400 cal · 25g net carbs · 132g protein · 86g fat · 20g fiber</strong> — and we haven't even started splitting them across meals yet.</p>
+              <p style="margin:0;font-size:13px;color:#0e7490;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">Sarah's daily targets, finished computing 6 numbers</p>
+              <p style="margin:6px 0 0;font-size:14px;color:#0f172a;line-height:1.6;"><strong>1,400 cal · 25g net carbs · 132g protein · 86g fat · 20g fiber</strong>, and we haven't even started splitting them across meals yet.</p>
             </td>
           </tr>
 
@@ -197,7 +197,7 @@ exports.handler = async (event) => {
           <tr>
             <td style="background:#ffffff;padding:24px 40px 8px;">
               <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#06b6d4;letter-spacing:0.05em;text-transform:uppercase;">Step B1 · Base Split (no snacks, no dessert)</p>
-              <p style="margin:0 0 10px;font-size:14px;color:#475569;line-height:1.65;">Breakfast carries less of the load because the dawn-phenomenon glucose rise compounds with morning intake. Lunch and dinner split evenly. <strong>Protein gets a separate bump — 25% breakfast / 37.5% lunch / 37.5% dinner</strong> — to keep you full and slow the glycemic response.</p>
+              <p style="margin:0 0 10px;font-size:14px;color:#475569;line-height:1.65;">Breakfast carries less of the load because the dawn-phenomenon glucose rise compounds with morning intake. Lunch and dinner split evenly. <strong>Protein gets a separate bump, 25% breakfast / 37.5% lunch / 37.5% dinner</strong>, to keep you full and slow the glycemic response.</p>
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:12px;color:#334155;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
                 <tr style="background:#0f172a;color:#f8fafc;">
                   <td style="padding:8px 9px;font-weight:700;">Meal</td>
@@ -231,7 +231,7 @@ exports.handler = async (event) => {
           <tr>
             <td style="background:#ffffff;padding:20px 40px 8px;">
               <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#06b6d4;letter-spacing:0.05em;text-transform:uppercase;">Step B2 · Snack &amp; Dessert Reservation Rules</p>
-              <p style="margin:0 0 10px;font-size:14px;color:#475569;line-height:1.65;">Snacks and dessert come <strong>out of</strong> your daily budget — not on top. Each slot has its own per-macro reservation, then B/L/D split what remains in 20/40/40.</p>
+              <p style="margin:0 0 10px;font-size:14px;color:#475569;line-height:1.65;">Snacks and dessert come <strong>out of</strong> your daily budget, not on top. Each slot has its own per-macro reservation, then B/L/D split what remains in 20/40/40.</p>
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:12px;color:#334155;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
                 <tr style="background:#0f172a;color:#f8fafc;">
                   <td style="padding:8px 9px;font-weight:700;">Slot</td>
@@ -248,17 +248,17 @@ exports.handler = async (event) => {
                 <tr style="background:#f8fafc;"><td style="padding:8px 9px;border-top:1px solid #e2e8f0;">Dessert mid-day</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">5%</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">3%</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">5%</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">8%</td></tr>
                 <tr><td style="padding:8px 9px;border-top:1px solid #e2e8f0;">Dessert "occasionally"</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">2.5%</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">2.5%</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">2.5%</td><td style="padding:8px 9px;border-top:1px solid #e2e8f0;text-align:center;">2.5%</td></tr>
               </table>
-              <p style="margin:10px 0 0;font-size:13px;color:#64748b;line-height:1.6;font-style:italic;">Side dishes and sauces have fixed allocations (5% / 3%) outside the 100% pool — they're add-ons, not standalone meals.</p>
+              <p style="margin:10px 0 0;font-size:13px;color:#64748b;line-height:1.6;font-style:italic;">Side dishes and sauces have fixed allocations (5% / 3%) outside the 100% pool, they're add-ons, not standalone meals.</p>
             </td>
           </tr>
 
           <!-- B3: SARAH WORKED SCENARIOS -->
           <tr>
             <td style="background:#ffffff;padding:20px 40px 28px;">
-              <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#06b6d4;letter-spacing:0.05em;text-transform:uppercase;">Step B3 · Sarah's Real Daily Targets — 3 Scenarios</p>
+              <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#06b6d4;letter-spacing:0.05em;text-transform:uppercase;">Step B3 · Sarah's Real Daily Targets, 3 Scenarios</p>
               <p style="margin:0 0 14px;font-size:14px;color:#475569;line-height:1.65;">Same Sarah, same body, same medication, just different snack/dessert habits. Watch how every per-meal number changes.</p>
 
-              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0f172a;">Scenario 1 — 0 snacks, no dessert</p>
+              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0f172a;">Scenario 1, 0 snacks, no dessert</p>
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:11px;color:#334155;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-bottom:14px;">
                 <tr style="background:#0f172a;color:#f8fafc;"><td style="padding:7px 8px;font-weight:700;">Slot</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Cal</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Pro</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Fat</td><td style="padding:7px 8px;font-weight:700;text-align:center;">NC</td></tr>
                 <tr><td style="padding:6px 8px;border-top:1px solid #e2e8f0;">Breakfast</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">280</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">33g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">17g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">5g</td></tr>
@@ -266,7 +266,7 @@ exports.handler = async (event) => {
                 <tr><td style="padding:6px 8px;border-top:1px solid #e2e8f0;">Dinner</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">560</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">49.5g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">34g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">10g</td></tr>
               </table>
 
-              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0f172a;">Scenario 2 — 1 mid-afternoon snack, no dessert</p>
+              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0f172a;">Scenario 2, 1 mid-afternoon snack, no dessert</p>
               <p style="margin:0 0 6px;font-size:12px;color:#64748b;line-height:1.55;">Reserve 3% of each macro for the snack first, then B/L/D split the remaining 97% in 20/40/40.</p>
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:11px;color:#334155;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-bottom:14px;">
                 <tr style="background:#0f172a;color:#f8fafc;"><td style="padding:7px 8px;font-weight:700;">Slot</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Cal</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Pro</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Fat</td><td style="padding:7px 8px;font-weight:700;text-align:center;">NC</td></tr>
@@ -276,8 +276,8 @@ exports.handler = async (event) => {
                 <tr style="background:#f8fafc;"><td style="padding:6px 8px;border-top:1px solid #e2e8f0;">Dinner</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">543</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">48g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">33g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">9.7g</td></tr>
               </table>
 
-              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0f172a;">Scenario 3 — 1 evening snack + after-dinner dessert</p>
-              <p style="margin:0 0 6px;font-size:12px;color:#64748b;line-height:1.55;">Reserve 3% of cal/pro/fat (and <span style="color:#dc2626;font-weight:700;">0% carbs</span> — Sarah's not on insulin) for the evening snack. Reserve 5% of cal/fat/carbs (3% protein) for dessert. B/L/D split the remainder.</p>
+              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0f172a;">Scenario 3, 1 evening snack + after-dinner dessert</p>
+              <p style="margin:0 0 6px;font-size:12px;color:#64748b;line-height:1.55;">Reserve 3% of cal/pro/fat (and <span style="color:#dc2626;font-weight:700;">0% carbs</span>, Sarah's not on insulin) for the evening snack. Reserve 5% of cal/fat/carbs (3% protein) for dessert. B/L/D split the remainder.</p>
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:11px;color:#334155;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
                 <tr style="background:#0f172a;color:#f8fafc;"><td style="padding:7px 8px;font-weight:700;">Slot</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Cal</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Pro</td><td style="padding:7px 8px;font-weight:700;text-align:center;">Fat</td><td style="padding:7px 8px;font-weight:700;text-align:center;">NC</td></tr>
                 <tr><td style="padding:6px 8px;border-top:1px solid #e2e8f0;">Breakfast</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">258</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">31g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">15.5g</td><td style="padding:6px 8px;border-top:1px solid #e2e8f0;text-align:center;">4.75g</td></tr>
@@ -316,18 +316,18 @@ exports.handler = async (event) => {
                 <p style="margin:6px 0 0;font-size:38px;font-weight:900;color:#06b6d4;letter-spacing:-0.02em;">140 numbers/week</p>
                 <p style="margin:6px 0 0;font-size:13px;color:#94a3b8;line-height:1.5;">All recomputed every time anything changes.</p>
               </div>
-              <p style="margin:16px 0 0;font-size:14px;color:#475569;line-height:1.65;">Doing this on paper takes 20+ minutes per recompute. Doing it in a spreadsheet means maintaining a spreadsheet. Doing it from memory means getting it wrong — and for T2D, "wrong" lands on your bloodwork at the next quarterly check-in.</p>
+              <p style="margin:16px 0 0;font-size:14px;color:#475569;line-height:1.65;">Doing this on paper takes 20+ minutes per recompute. Doing it in a spreadsheet means maintaining a spreadsheet. Doing it from memory means getting it wrong, and for T2D, "wrong" lands on your bloodwork at the next quarterly check-in.</p>
             </td>
           </tr>
 
           <!-- ============== CTA ============== -->
           <tr>
             <td style="background:#0f172a;padding:36px 40px;text-align:center;">
-              <p style="margin:0 0 8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#06b6d4;">Or — let us do this for you</p>
+              <p style="margin:0 0 8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#06b6d4;">Or, let us do this for you</p>
               <h2 style="margin:0 0 14px;font-size:22px;font-weight:900;color:#f8fafc;line-height:1.25;letter-spacing:-0.02em;">Keto Contractor does every calculation above<br />automatically, for every meal, every day.</h2>
-              <p style="margin:0 0 24px;font-size:15px;color:#94a3b8;line-height:1.65;">Your daily cap, the 20/40/40 split, the breakfast protein bump, the evening-snack zero-carb rule, the insulin-user exception, the reservation pool math — all of it. Set up in a 5-minute onboarding. Every recipe in the app arrives pre-tuned for your numbers.</p>
-              <a href="https://app.ketocontractor.com/login" style="display:inline-block;background:#06b6d4;color:#000;font-weight:800;font-size:15px;padding:14px 32px;border-radius:10px;text-decoration:none;">Start Free — 7 Days on Us</a>
-              <p style="margin:16px 0 0;font-size:12px;color:#475569;">7-day free trial. Cancel anytime.</p>
+              <p style="margin:0 0 24px;font-size:15px;color:#94a3b8;line-height:1.65;">Your daily cap, the 20/40/40 split, the breakfast protein bump, the evening-snack zero-carb rule, the insulin-user exception, the reservation pool math, all of it. Set up in a 5-minute onboarding. Every recipe in the app arrives pre-tuned for your numbers.</p>
+              <a href="https://app.ketocontractor.com/login" style="display:inline-block;background:#06b6d4;color:#000;font-weight:800;font-size:15px;padding:14px 32px;border-radius:10px;text-decoration:none;">Start Free, 3 Days on Us</a>
+              <p style="margin:16px 0 0;font-size:12px;color:#475569;">3-day free trial. Cancel anytime.</p>
             </td>
           </tr>
 
@@ -365,7 +365,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         from: 'Keto Contractor <support@ketocontractor.com>',
         to: [email],
-        subject: 'The T2D Macro Map — Every Calculation, For Every Meal',
+        subject: 'The T2D Macro Map, Every Calculation, For Every Meal',
         html,
       }),
     });
