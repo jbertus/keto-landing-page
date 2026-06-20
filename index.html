@@ -528,6 +528,20 @@
     }
     .features-side-img img { width: 100%; display: block; }
 
+    .spotlight-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .spotlight-img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+    }
+
     .forwho-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -837,6 +851,19 @@
           </div>
         </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="spotlight">
+    <div class="container">
+      <div class="section-label">See It In Action</div>
+      <h2>Your AI toolkit, in action.</h2>
+      <div class="spotlight-stack">
+        <img class="spotlight-img fade-up" src="HacktheMenu.png" alt="Hack the Menu: see the best low-carb picks and the carb traps before you order" loading="lazy" />
+        <img class="spotlight-img fade-up" src="BuildMyWeek.png" alt="Build My Week AI: your low-carb week, planned in minutes" loading="lazy" />
+        <img class="spotlight-img fade-up" src="PlateAnalyzer.png" alt="Plate Analyzer AI: snap a meal and see the carbs before they surprise you" loading="lazy" />
       </div>
     </div>
   </section>
