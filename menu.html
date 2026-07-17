@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Hacked Menu | Keto Contractor</title>
+  <meta name="description" content="Free restaurant cheat sheet: every keto-safe order with exact net carbs and what to say to the waiter. Built for type 2 diabetics." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0f1e; color: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { max-width: 560px; width: 100%; background: #131b2d; border: 1px solid rgba(6,182,212,0.3); border-radius: 20px; padding: 44px 40px; text-align: center; }
+    img.logo { width: 72px; height: 72px; border-radius: 14px; margin-bottom: 18px; }
+    .brand { color: #06b6d4; font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+    h1 { font-size: 28px; font-weight: 900; margin: 10px 0 12px; letter-spacing: -0.02em; }
+    p.sub { color: #94a3b8; font-size: 15px; line-height: 1.65; margin-bottom: 26px; }
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input[type="email"] { background: #0a0f1e; border: 1.5px solid #334155; border-radius: 10px; padding: 14px 16px; font-size: 15px; color: #f8fafc; outline: none; width: 100%; }
+    input[type="email"]:focus { border-color: #06b6d4; }
+    button { background: #06b6d4; color: #000; font-weight: 800; font-size: 15px; padding: 14px; border: none; border-radius: 10px; cursor: pointer; width: 100%; }
+    button:hover { background: #22d3ee; }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .fine { color: #475569; font-size: 12px; margin-top: 14px; }
+    .success { display: none; }
+    .success.show { display: block; }
+    .capture.hide { display: none; }
+    .check { color: #10b981; font-size: 40px; margin-bottom: 10px; }
+    a.dl { display: inline-block; background: #06b6d4; color: #000; font-weight: 800; font-size: 15px; padding: 14px 30px; border-radius: 10px; text-decoration: none; margin-top: 8px; }
+    a.dl:hover { background: #22d3ee; }
+    .inboxnote { color: #94a3b8; font-size: 13px; margin-top: 14px; line-height: 1.6; }
+    .err { color: #f87171; font-size: 13px; margin-top: 8px; display: none; }
+    .disclaimer { color: #334155; font-size: 10.5px; margin-top: 22px; line-height: 1.6; }
+    .disclaimer a { color: #475569; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="https://app.ketocontractor.com/kc-logo.png" alt="Keto Contractor" />
+    <div class="brand">Keto Contractor &bull; Hacked Menu</div>
+    <h1 id="title">Your Hacked Menu</h1>
+
+    <div class="capture" id="capture">
+      <p class="sub" id="subtext">Every keto-safe order with exact net carbs, plus what to say to the waiter. Drop your email and it's yours - instantly here, and in your inbox so you have it at the restaurant.</p>
+      <form id="f">
+        <input type="email" id="email" placeholder="Your email address" required autocomplete="email" />
+        <button type="submit" id="btn">Send Me The Menu</button>
+      </form>
+      <div class="err" id="err">Something hiccuped. Try again in a few seconds.</div>
+      <div class="fine">No spam. Unsubscribe anytime.</div>
+    </div>
+
+    <div class="success" id="success">
+      <div class="check">&#10003;</div>
+      <p class="sub">Done! It's on the way to your inbox - and here it is instantly, too:</p>
+      <a class="dl" id="dl" href="#" target="_blank" rel="noopener">Open The Menu (PDF)</a>
+      <p class="inboxnote">Don't see the email in a couple minutes? Check spam and drag it over so your cheat sheets keep arriving.</p>
+    </div>
+
+    <p class="disclaimer">Educational, not medical advice. &copy; 2026 Keto Contractor &middot; <a href="https://ketocontractor.com">ketocontractor.com</a></p>
+  </div>
+
+  <script>
+    var params = new URLSearchParams(location.search);
+    var slug = params.get('r') || '';
+    var pretty = slug.replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+    if (pretty) {
+      document.getElementById('title').textContent = pretty + ' Hacked Menu';
+      document.title = pretty + ' Hacked Menu | Keto Contractor';
+    }
+    document.getElementById('dl').href = 'https://ketocontractor.com/menus/' + slug + '_Hacked.pdf';
+
+    document.getElementById('f').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('btn');
+      var err = document.getElementById('err');
+      err.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        var res = await fetch('/.netlify/functions/send-menu', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: document.getElementById('email').value, slug: slug })
+        });
+        if (!res.ok) throw new Error('failed');
+        document.getElementById('capture').classList.add('hide');
+        document.getElementById('success').classList.add('show');
+      } catch (e2) {
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send Me The Menu';
+      }
+    });
+  </script>
+</body>
+</html>
