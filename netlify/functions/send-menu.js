@@ -60,6 +60,8 @@ exports.handler = async (event) => {
           <td style="background:#ffffff;padding:32px 40px;text-align:center;">
             <p style="margin:0 0 20px;font-size:15px;color:#334155;line-height:1.7;">Here is your <strong>${name}</strong> Hacked Menu. Save it to your phone and order with total confidence on your next visit.</p>
             <a href="${pdfUrl}" style="display:inline-block;background:#06b6d4;color:#000;font-weight:800;font-size:15px;padding:14px 32px;border-radius:10px;text-decoration:none;">Open Your Hacked Menu (PDF)</a>
+            <p style="margin:24px 0 12px;font-size:14px;color:#334155;line-height:1.7;"><strong>Bonus, as promised:</strong> the T2D Macro Map - the carb-math cheat sheet for eating with type 2.</p>
+            <a href="https://ketocontractor.com/The_T2D_Macro_Map.pdf" style="display:inline-block;border:1.5px solid #06b6d4;color:#0e7490;font-weight:800;font-size:14px;padding:12px 26px;border-radius:10px;text-decoration:none;">Download The Macro Map (PDF)</a>
             <p style="margin:24px 0 0;font-size:13px;color:#64748b;line-height:1.65;">This menu is one output of <strong>Hack the Menu</strong>, tool #3 of 12 inside Keto Contractor - the meal planning app built for type 2 diabetics. It reads any restaurant menu and shows your safest order in seconds.</p>
             <a href="https://ketocontractor.com" style="display:inline-block;margin-top:14px;color:#0e7490;font-weight:700;font-size:14px;">Start your free 3-day trial &rarr;</a>
           </td>
