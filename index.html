@@ -245,6 +245,53 @@
     }
     .who-tag svg { color: var(--cyan); flex-shrink: 0; }
 
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--bg2); border-top: 1px solid var(--border); }
+    .tcar { position: relative; max-width: 720px; margin: 2.75rem auto 0; }
+    .tcar-track { position: relative; }
+    .tcard {
+      position: absolute; inset: 0;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem 2.25rem;
+      display: flex; flex-direction: column; justify-content: center;
+      opacity: 0; visibility: hidden; transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .tcard.active { opacity: 1; visibility: visible; transform: translateY(0); position: relative; }
+    .tcard-quote {
+      font-size: 1.15rem; line-height: 1.7; color: var(--white);
+      font-weight: 500; margin-bottom: 1.5rem;
+    }
+    .tcard-quote::before { content: '\201C'; color: var(--cyan); font-weight: 700; }
+    .tcard-quote::after { content: '\201D'; color: var(--cyan); font-weight: 700; }
+    .tcard-author { display: flex; align-items: center; gap: 0.85rem; }
+    .tcard-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan-dark), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: var(--bg); font-size: 0.9rem; flex-shrink: 0;
+    }
+    .tcard-name { font-weight: 700; color: var(--white); font-size: 0.95rem; }
+    .tcard-meta { color: var(--slate); font-size: 0.85rem; }
+    .tcar-nav { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 1.75rem; }
+    .tcar-btn {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--slate); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: color .2s, border-color .2s;
+    }
+    .tcar-btn:hover { color: var(--cyan); border-color: var(--cyan); }
+    .tcar-btn svg { width: 20px; height: 20px; }
+    .tcar-dots { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; max-width: 340px; }
+    .tcar-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--slate-dim); border: none; cursor: pointer; padding: 0;
+      transition: background .25s, width .25s;
+    }
+    .tcar-dot.active { background: var(--cyan); width: 22px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) { .tcard { transition: none; } }
+
     /* ── PRICING ── */
     #pricing { background: var(--bg2); }
     .pricing-note {
@@ -913,6 +960,27 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-label">What Members Say</div>
+      <h2>You're not the first to feel this way.</h2>
+      <p class="section-sub" style="margin:0 auto">Real situations, one plan. Here's what it sounds like on the other side of the guesswork.</p>
+      <div class="tcar fade-up" id="tcar">
+        <div class="tcar-track" id="tcarTrack"></div>
+        <div class="tcar-nav">
+          <button class="tcar-btn" id="tcarPrev" aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="tcar-dots" id="tcarDots"></div>
+          <button class="tcar-btn" id="tcarNext" aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section id="pricing">
     <div class="container">
@@ -1095,6 +1163,68 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+    // ── TESTIMONIALS CAROUSEL ──
+    (function () {
+      const T = [
+        { q: "I was diagnosed in March and spent two months googling what I could eat. Keto Contractor just tells me. That alone was worth it.", n: "Gary L.", m: "56, newly diagnosed" },
+        { q: "Every app I tried wanted me to log things. I don't want to log. I want to open my phone and see what's for dinner.", n: "Patricia H.", m: "63" },
+        { q: "MyFitnessPal never had a setting for someone like me. This is the first app that acted like it was built for a diabetic.", n: "Reggie M.", m: "51" },
+        { q: "The fiber number being right there next to the carbs is a small thing that nobody else does. It matters to me.", n: "Diane C.", m: "47" },
+        { q: "I plan Sunday, I cook Sunday, and I stop thinking about food until the next Sunday. That's the whole pitch and it delivers.", n: "Frank O.", m: "45" },
+        { q: "The menu scan is the feature I show people. I hold up my phone at a restaurant and it tells me exactly what to say at the counter.", n: "Yolanda B.", m: "55" },
+        { q: "My wife used to do all the figuring out. Now the app does it and she gets her Sundays back.", n: "Walt D.", m: "64" },
+        { q: "I'm not a cook and I'm not a numbers person. I just follow the plan. That's the only reason I stuck with it.", n: "Brenda F.", m: "59" },
+        { q: "Twenty minutes a week of setup replaced what used to be a daily argument with myself about lunch.", n: "Hector V.", m: "42" },
+        { q: "I've started three eating plans since my diagnosis. This is the first one I didn't quit, because it never asked me to figure anything out.", n: "Lorraine P.", m: "62" },
+        { q: "The doctor handed me a pamphlet and said 'watch your carbs.' That was the whole instruction. This app is what I actually needed that day.", n: "Ronald K.", m: "53, newly diagnosed" },
+        { q: "I sat in the parking lot after my appointment and googled 'what can diabetics eat' for 40 minutes. I wish I'd found this first.", n: "Sandra M.", m: "50" },
+        { q: "I was scared of my own refrigerator. Not knowing was the worst part. Now I open the app and I know.", n: "Gloria T.", m: "58" },
+        { q: "Nobody tells you the hardest part is deciding. Every meal, every day, on your own. This decides for me.", n: "Leon W.", m: "60" },
+        { q: "Six weeks in I was exhausted from thinking about food. Twenty minutes on a Sunday replaced all of it.", n: "Anthony R.", m: "46" },
+        { q: "My daughter kept sending me articles. I didn't need more articles. I needed a plan, and Keto Contractor helped me make one.", n: "Earl J.", m: "67" },
+        { q: "I felt like everyone else got a manual and I got a diagnosis.", n: "Carol S.", m: "61" },
+        { q: "The first week I ate the same three things because they were the only ones I trusted. Now I have a week of meals I don't have to second-guess.", n: "Terrence H.", m: "48" },
+        { q: "I'm not overwhelmed anymore. That's what I'd tell someone who just got diagnosed.", n: "Nancy A.", m: "65" },
+        { q: "It didn't make me an expert. It made it so I didn't have to be one.", n: "Vivian L.", m: "54" }
+      ];
+      const track = document.getElementById('tcarTrack');
+      const dotsWrap = document.getElementById('tcarDots');
+      if (!track) return;
+      let idx = 0, timer = null;
+      T.forEach((t, i) => {
+        const initials = t.n.split(' ').map(s => s[0]).join('').slice(0, 2).toUpperCase();
+        const card = document.createElement('div');
+        card.className = 'tcard' + (i === 0 ? ' active' : '');
+        card.innerHTML =
+          '<p class="tcard-quote">' + t.q + '</p>' +
+          '<div class="tcard-author"><div class="tcard-avatar">' + initials + '</div>' +
+          '<div><div class="tcard-name">' + t.n + '</div><div class="tcard-meta">' + t.m + '</div></div></div>';
+        track.appendChild(card);
+        const dot = document.createElement('button');
+        dot.className = 'tcar-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+        dot.addEventListener('click', () => { go(i); restart(); });
+        dotsWrap.appendChild(dot);
+      });
+      const cards = track.querySelectorAll('.tcard');
+      const dots = dotsWrap.querySelectorAll('.tcar-dot');
+      function go(n) {
+        cards[idx].classList.remove('active');
+        dots[idx].classList.remove('active');
+        idx = (n + T.length) % T.length;
+        cards[idx].classList.add('active');
+        dots[idx].classList.add('active');
+      }
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function restart() { if (reduce) return; clearInterval(timer); timer = setInterval(() => go(idx + 1), 5500); }
+      document.getElementById('tcarNext').addEventListener('click', () => { go(idx + 1); restart(); });
+      document.getElementById('tcarPrev').addEventListener('click', () => { go(idx - 1); restart(); });
+      const car = document.getElementById('tcar');
+      car.addEventListener('mouseenter', () => clearInterval(timer));
+      car.addEventListener('mouseleave', restart);
+      restart();
+    })();
 
     // ── COUNTER ANIMATION ──
     function animateCount(el, target, suffix, duration = 1400) {
