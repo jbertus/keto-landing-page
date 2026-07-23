@@ -363,6 +363,32 @@
       border: 1px solid var(--border);
     }
     .plan-cta-secondary:hover { border-color: var(--slate-dim); }
+    /* Trial + credit explainer. Sits under the cards so the grid stays clean, but is
+       part of the pricing block rather than fine print — these are the two things
+       buyers get surprised by after paying. Type is 0.9rem+ deliberately: the audience
+       skews 50-65 and the old 0.8rem footer was already a squint. */
+    .pricing-explainer {
+      max-width: 46rem; margin: 2.25rem auto 0; padding: 1.5rem 1.75rem;
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 14px;
+      font-size: 0.9rem; line-height: 1.6; color: var(--slate);
+    }
+    .pricing-explainer p { margin-bottom: 1rem; }
+    .pricing-explainer p:last-child { margin-bottom: 0; }
+    .pricing-explainer strong { color: var(--white); }
+    .credit-costs { list-style: none; margin: 0 0 1rem; }
+    .credit-costs li {
+      display: flex; gap: 0.85rem; align-items: baseline;
+      padding: 0.45rem 0; border-top: 1px solid var(--border);
+    }
+    .credit-costs li span {
+      flex: 0 0 5.5rem; color: var(--cyan); font-weight: 700; font-size: 0.85rem;
+    }
+    .credit-footnote { font-size: 0.85rem; color: var(--slate-dim); }
+    @media (max-width: 640px) {
+      .pricing-explainer { padding: 1.25rem; }
+      .credit-costs li { flex-direction: column; gap: 0.15rem; }
+      .credit-costs li span { flex: none; }
+    }
     .pricing-footer { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--slate-dim); }
 
     /* ── EMAIL CAPTURE ── */
@@ -994,7 +1020,7 @@
       <h2>Start free. Stay as long as it works.</h2>
       <p class="section-sub" style="margin-bottom:1.5rem">Every plan starts with a 3-day free trial. Cancel anytime before day 4.</p>
       <div style="text-align:center">
-        <div class="pricing-note">✦ 3-day free trial on every plan, cancel anytime</div>
+        <div class="pricing-note">✦ Every plan starts with 3 days of full Mastery access</div>
       </div>
       <div class="pricing-grid">
 
@@ -1005,6 +1031,8 @@
           <div class="plan-price">$89<span>/mo</span></div>
           <div class="plan-trial">✓ 3-day free trial</div>
           <hr class="plan-divider" />
+          <!-- These 8 are exactly RHYTHM_LOCKED_FEATURES in useFeatureAccess.js.
+               Do not add, remove or reword without changing the gate array too. -->
           <ul class="plan-features">
             <li>Everything in Rhythm</li>
             <li>60 AI credits / month</li>
@@ -1012,8 +1040,11 @@
             <li>Hands-free Cooking Mode</li>
             <li>Automatic ingredient swaps</li>
             <li>Leftover Rescue</li>
-            <li>Macro Coach &amp; Budget Meals</li>
-            <li>Smart Weekly Planner &amp; Grocery Optimizer</li>
+            <li>Macro Coach</li>
+            <li>Recipe Import &amp; Convert</li>
+            <li>Budget Meal Generator</li>
+            <li>Smart Weekly Planner</li>
+            <li>Smart Grocery Optimizer</li>
           </ul>
           <a href="https://whop.com/checkout/plan_YwEGBnIyziDW6" class="plan-cta plan-cta-secondary">Start Free Trial</a>
         </div>
@@ -1026,6 +1057,8 @@
           <div class="plan-price">$49<span>/mo</span></div>
           <div class="plan-trial">✓ 3-day free trial</div>
           <hr class="plan-divider" />
+          <!-- These 6 are exactly RESET_LOCKED_FEATURES in useFeatureAccess.js.
+               Do not add, remove or reword without changing the gate array too. -->
           <ul class="plan-features">
             <li>Everything in Reset</li>
             <li>30 AI credits / month</li>
@@ -1034,7 +1067,8 @@
             <li>Barcode Scanner</li>
             <li>Ask the Coach</li>
             <li>Meal Prep Timeline</li>
-            <li class="dim">Voice input</li>
+            <li>Reset Shopping List from Plan</li>
+            <li class="dim">Voice input, Leftover Rescue, Macro Coach</li>
           </ul>
           <a href="https://whop.com/checkout/plan_ampXYPQ6OOjHY" class="plan-cta plan-cta-primary">Start Free Trial</a>
         </div>
@@ -1046,21 +1080,49 @@
           <div class="plan-price">$29<span>/mo</span></div>
           <div class="plan-trial">✓ 3-day free trial</div>
           <hr class="plan-divider" />
+          <!-- Everything listed here is ungated — it is on EVERY plan, including this
+               one. Nothing in useFeatureAccess.js restricts any of it. -->
           <ul class="plan-features">
             <li>AI Recipe Generator</li>
             <li>10 AI credits / month</li>
             <li>Build My Week AI</li>
             <li>Meal Planner &amp; Recipe Library</li>
-            <li>Shopping List</li>
+            <li>Shopping List &amp; Pantry</li>
             <li>Hack the Menu</li>
-            <li class="dim">Plate Analyzer</li>
-            <li class="dim">Voice input</li>
+            <li>Metabolic Coach</li>
+            <li>Weekly Check-In</li>
+            <li class="dim">Plate Analyzer, Barcode Scanner, Ask the Coach</li>
           </ul>
           <a href="https://whop.com/checkout/plan_CeEGYwSLSq3xe" class="plan-cta plan-cta-secondary">Start Free Trial</a>
         </div>
 
       </div>
-      <p class="pricing-footer">All plans include a 3-day free trial. Cancel before day 4 and you won't be charged. AI credits reset monthly.</p>
+      <!-- The trial paragraph is deliberately explicit. Every signup gets effective-Mastery
+           access for 3 days via the trial_expires_at override in useFeatureAccess.js,
+           whichever plan they picked. Saying so up front is the difference between "my
+           trial ended" and "they took features away from me" on day 4. -->
+      <div class="pricing-explainer">
+        <p><strong>How the 3-day trial works.</strong> Whichever plan you pick, your first
+        3 days include every Mastery feature. On day 4 your own plan takes over and the
+        features above are what you keep. Cancel any time before day 4 and you are not
+        charged.</p>
+
+        <p><strong>What a credit buys.</strong> Credits are only spent when AI does the work
+        for you. Everything else — the planner, your recipe library, the shopping list,
+        looking up a restaurant — costs nothing.</p>
+
+        <ul class="credit-costs">
+          <li><span>1 credit</span> One AI recipe, a Metabolic Coach answer, a Weekly Check-In, or a cooking question</li>
+          <li><span>2 credits</span> Plate Analyzer scan, Pantry Scanner, Grocery Optimizer</li>
+          <li><span>6 credits</span> Build My Week for breakfast, lunch and dinner (2 per meal type)</li>
+        </ul>
+
+        <p class="credit-footnote">Monthly credits reset on your billing date and do not roll
+        over. Credit packs you buy separately never expire and are only used once your
+        monthly credits run out.</p>
+      </div>
+
+      <p class="pricing-footer">Prices in USD. Cancel any time from your account.</p>
     </div>
   </section>
 
