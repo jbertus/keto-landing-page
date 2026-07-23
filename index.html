@@ -326,6 +326,12 @@
       white-space: nowrap;
     }
     .plan-name { font-size: 0.8rem; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    /* One-line outcome promise under each plan name. Fixed min-height so the three
+       price rows stay aligned across cards even when the promise wraps differently. */
+    .plan-promise {
+      font-size: 0.875rem; line-height: 1.35; color: var(--white);
+      font-weight: 600; margin-bottom: 0.9rem; min-height: 2.4em;
+    }
     .plan-price {
       font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em;
       margin-bottom: 0.2rem;
@@ -992,62 +998,65 @@
       </div>
       <div class="pricing-grid">
 
-        <!-- Reset -->
-        <div class="plan">
-          <div class="plan-name">Reset</div>
-          <div class="plan-price">$29<span>/mo</span></div>
-          <div class="plan-trial">✓ 3-day free trial</div>
-          <hr class="plan-divider" />
-          <ul class="plan-features">
-            <li>AI Recipe Generator</li>
-            <li>10 AI credits / month</li>
-            <li>Recipe Library</li>
-            <li>Meal Planner</li>
-            <li>Shopping List</li>
-            <li class="dim">Build My Week AI</li>
-            <li class="dim">Plate Analyzer</li>
-            <li class="dim">Voice Input</li>
-          </ul>
-          <a href="https://whop.com/checkout/plan_CeEGYwSLSq3xe" class="plan-cta plan-cta-secondary">Start Free Trial</a>
-        </div>
-
-        <!-- Rhythm (featured) -->
-        <div class="plan featured">
-          <div class="plan-badge">Most Popular</div>
-          <div class="plan-name">Rhythm</div>
-          <div class="plan-price">$49<span>/mo</span></div>
-          <div class="plan-trial">✓ 3-day free trial</div>
-          <hr class="plan-divider" />
-          <ul class="plan-features">
-            <li>Everything in Reset</li>
-            <li>30 AI credits / month</li>
-            <li>Build My Week AI</li>
-            <li>Plate Analyzer</li>
-            <li>Barcode Scanner</li>
-            <li>Recipe Scaler &amp; Substitutions</li>
-            <li>Smart Weekly Planner</li>
-            <li class="dim">Voice Input</li>
-          </ul>
-          <a href="https://whop.com/checkout/plan_ampXYPQ6OOjHY" class="plan-cta plan-cta-primary">Start Free Trial</a>
-        </div>
-
-        <!-- Mastery -->
+        <!-- Mastery — anchor high -->
         <div class="plan">
           <div class="plan-name">Mastery</div>
+          <div class="plan-promise">The easiest, most hands-free way to manage food with T2D.</div>
           <div class="plan-price">$89<span>/mo</span></div>
           <div class="plan-trial">✓ 3-day free trial</div>
           <hr class="plan-divider" />
           <ul class="plan-features">
             <li>Everything in Rhythm</li>
             <li>60 AI credits / month</li>
-            <li>Voice Input everywhere</li>
-            <li>AI Weekly Check-In Coach</li>
-            <li>Text-to-Speech Cook Mode</li>
-            <li>Macro Coach</li>
-            <li>Budget Meal Generator</li>
-            <li>Grocery Optimizer</li>
+            <li>Voice input everywhere</li>
+            <li>Hands-free Cooking Mode</li>
+            <li>Automatic ingredient swaps</li>
+            <li>Leftover Rescue</li>
+            <li>Macro Coach &amp; Budget Meals</li>
+            <li>Smart Weekly Planner &amp; Grocery Optimizer</li>
           </ul>
           <a href="https://whop.com/checkout/plan_YwEGBnIyziDW6" class="plan-cta plan-cta-secondary">Start Free Trial</a>
+        </div>
+
+        <!-- Rhythm (featured) -->
+        <div class="plan featured">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-name">Rhythm</div>
+          <div class="plan-promise">Keep your entire month of meals handled.</div>
+          <div class="plan-price">$49<span>/mo</span></div>
+          <div class="plan-trial">✓ 3-day free trial</div>
+          <hr class="plan-divider" />
+          <ul class="plan-features">
+            <li>Everything in Reset</li>
+            <li>30 AI credits / month</li>
+            <li>Plate Analyzer</li>
+            <li>AI Pantry Scanner</li>
+            <li>Barcode Scanner</li>
+            <li>Ask the Coach</li>
+            <li>Meal Prep Timeline</li>
+            <li class="dim">Voice input</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_ampXYPQ6OOjHY" class="plan-cta plan-cta-primary">Start Free Trial</a>
+        </div>
+
+        <!-- Reset -->
+        <div class="plan">
+          <div class="plan-name">Reset</div>
+          <div class="plan-promise">Build your first personalized week and stop guessing.</div>
+          <div class="plan-price">$29<span>/mo</span></div>
+          <div class="plan-trial">✓ 3-day free trial</div>
+          <hr class="plan-divider" />
+          <ul class="plan-features">
+            <li>AI Recipe Generator</li>
+            <li>10 AI credits / month</li>
+            <li>Build My Week AI</li>
+            <li>Meal Planner &amp; Recipe Library</li>
+            <li>Shopping List</li>
+            <li>Hack the Menu</li>
+            <li class="dim">Plate Analyzer</li>
+            <li class="dim">Voice input</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_CeEGYwSLSq3xe" class="plan-cta plan-cta-secondary">Start Free Trial</a>
         </div>
 
       </div>
